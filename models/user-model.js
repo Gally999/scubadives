@@ -49,7 +49,7 @@ const userSchema = new Schema({
     },
     speciality:{
         type: [String],
-        enum:["Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver" , "Search and Recovery Diver", "Emergency First Response Provider", "Ice Diver"],
+        enum:["None", "Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver" , "Search and Recovery Diver", "Emergency First Response Provider", "Ice Diver"],
         default: "None",
     },
     role:{
