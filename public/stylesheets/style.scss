@@ -97,7 +97,8 @@ label {
 
 .homepage {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 100px;
 }
 
 .section1{
@@ -105,6 +106,13 @@ label {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+//Courses
+.courses{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
 }
 
 //footer
