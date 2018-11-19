@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,39 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
 
+<body>
+  <header>
+    <nav>
+      <div class="topnav" id="myTopnav"></div>
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <div class="dropdown">
+        <button class="dropbtn">Courses
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/padi">Professional Association of Diving Instructors(PADI)</a>
+          <a href="/ssl">Scuba School International (SSL)</a>
+          <a href="/sdi">Scuba Diving International (SDI)</a>
+        </div>
+      </div>
+      <a href="/divesite">Dive Sites</a>
+      <a href="About Us">About Us</a>
+      <a href="/profile">Profile</a>
+      <a href="/login">Log In</a>
+      <a href="/signup">Sign Up</a>
+      <a href="/logout">Log Out</a>
+      </div>
+    </nav>
+  </header>
   {{{body}}}
+
+  <footer>
+    <p>🐙🦑🦐🦀🐡🐠🐟🐬🐳🐋🦈 Scuba Divers Rule the World! 🐙🦑🦐🦀🐡🐠🐟🐬🐳🐋🦈</p>
+  </footer>
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

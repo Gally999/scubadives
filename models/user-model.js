@@ -56,7 +56,7 @@ const userSchema = new Schema({
         default: "diver",
     },
     isShopowner:{
-        type:boolean,
+        type: Boolean,
         required: true,
     }
 },{
@@ -65,13 +65,13 @@ const userSchema = new Schema({
 
 //booleans for Admin users
 // use the regular annoymous function rather than the arrow annoymous function
-userSchema.virtual('isShopowner').get(function () {
-    return this.role === 'shopowner';
-});
+// userSchema.virtual('isShopowner').get(function () {
+//     return this.role === 'shopowner';
+// });
 
-userSchema.virtual('isAdmin').get(function () {
-    return this.role === 'admin';
-});
+// userSchema.virtual('isAdmin').get(function () {
+//     return this.role === 'admin';
+// });
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
