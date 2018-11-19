@@ -40,14 +40,17 @@ const userSchema = new Schema({
         type: String,
         enum:["Scuba Diver", "Open Water", "Adventure Diver", "Advanced Open Water", "Rescue Diver", "Master Scuba Diver"],
         required: true,
+        default: "Scuba Diver",
     },
     secCert:{
         type: String,
-        enum:["Dive Master", "Open Water Scuba Instructor",]
+        enum:["None", "Dive Master", "Open Water Scuba Instructor"],
+        default: "None",
     },
     speciality:{
         type: String,
-        enum:["Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver, Search and Recovery Diver", "Emergency First Response Provider"],
+        enum:["None", "Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver", "Search and Recovery Diver", "Emergency First Response Provider"],
+        default: "None",
     },
     role:{
         type: String,
@@ -57,7 +60,6 @@ const userSchema = new Schema({
     },
     isShopowner:{
         type: Boolean,
-        required: true,
     }
 },{
     timestamps:true,
