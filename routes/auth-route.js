@@ -53,6 +53,7 @@ router.post("/login-process", (req, res, next) => {
             }
             const { encryptedPassword } = userDoc;
             if(bcrypt.compareSync(originalPassword, encryptedPassword)) {
+                req.flash("success", "Congrats, you are logged-in!");
                 res.redirect("/");
             } else {
                 req.flash("error", "Wrong password, please try again!");
