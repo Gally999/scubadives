@@ -11,7 +11,7 @@ const path         = require('path');
 const session      = require('express-session');
 const flash        = require('connect-flash');
 const MongoStore   = require('connect-mongo')(session);
-const passport     = require ('passport');
+const passport     = require('passport');
 
 // run the code inside 'passport-setup.js and google-strategy.js'
 require('./config/passport/passport-setup.js');
@@ -55,7 +55,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(session({
   //resave and saveUnitialized are just here to avoid warning messages
   resave: true,
-  saveUnintialized: true,
+  saveUninitialized: true,
   // secret should be a string that is different for every app
   secret: "eXUW6iJ6=2h}yB2345^;MmJ+fpYiU8A[Mg2KNRAj?C",
   // use the connect-mongo npm package to store session info in MongoDB
