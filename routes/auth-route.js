@@ -10,9 +10,8 @@ router.get('/signup', (req,res,next) =>{
 });
 
 router.post('/add-user', (req,res,next) =>{
-    const { firstName, lastName, nationality, email, originalPassword, organization, certNb, mainCert, secCert, speciality, isShopOwner} = req.body;
-    if (!originalPassword || !firstName || !lastName || !nationality || !email ||!organization || originalPassword.match(/[0-9]/) === null)
-    // (!originalPassword || !firstName || !lastName || !nationality || !email|| !organization || !certNb || !mainCert || !isShopOwner|| originalPassword.match(/[0-9]/) === null)
+    const { firstName, lastName, nationality, email, originalPassword, organization, certNb, mainCert, secCert, speciality,} = req.body;
+    if (!originalPassword || !firstName || !lastName || !nationality || !email|| !organization || !certNb || !mainCert || originalPassword.match(/[0-9]/) === null)
     {
         req.flash("error", "Fields cannot be blank and Password must contain a number");
         res.redirect('/signup');
@@ -27,7 +26,7 @@ router.post('/add-user', (req,res,next) =>{
         }
 
         const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-        User.create({firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert, secCert, speciality, isShopOwner})
+        User.create({firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert, secCert, speciality,})
         .then(userDoc =>{
             req.flash("success", "Created Successfully");
             res.redirect('/');
@@ -61,6 +60,13 @@ router.post("/login-process", (req, res, next) => {
             }
         })
         .catch(err => next(err));
+});
+
+//Log out
+router.get('/logout', (req,res,next) =>{
+    req.logOut();
+    req.flash("success", "Log Out successfully!!")
+    res.redirect('/');
 });
 
 module.exports = router;
