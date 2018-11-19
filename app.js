@@ -84,6 +84,8 @@ app.locals.title = 'Scuba Dives';
 
 const index = require('./routes/index');
 app.use('/', index);
+const authRoute = require('./routes/auth-route');
+app.use('/', authRoute);
 
 
 module.exports = app;
