@@ -51,6 +51,11 @@ const shopSchema = new Schema({
         min: 1,
         max: 5,
     },
+    divesites:{
+        type: Schema.Types.ObjectId,
+        ref: "Divesite",
+        required:true,
+    },
   // Embedded Documents  
   reviews: [{
     user: {
