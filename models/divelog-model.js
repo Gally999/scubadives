@@ -16,6 +16,7 @@ const divelogSchema = new Schema({
     type: Date, 
     required: true 
   },
+  depthInfo: { type: String, enum: ["m", "ft"] }, 
   depth: { type: Number }, 
   weightNb: { type: Number },
   weightInfo: { 
