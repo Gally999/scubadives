@@ -4,10 +4,8 @@ header, body, footer {
   font-family: 'Montserrat';
 }
 
-label {
-  display: block;
-}
 
+// flash message error or success
 .error-message {
   border: 3px solid;
   border-radius: 3px;
@@ -92,6 +90,11 @@ nav a {
   display: block;
 }
 
+//Homepage
+label {
+  display: block;
+}
+
 .homepage {
   display: flex;
   justify-content: space-around;
@@ -102,4 +105,9 @@ nav a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+//footer
+footer{
+  text-align: center;
 }

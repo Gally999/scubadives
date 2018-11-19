@@ -2,9 +2,6 @@
 header, body, footer {
   font-family: 'Montserrat'; }
 
-label {
-  display: block; }
-
 .error-message {
   border: 3px solid;
   border-radius: 3px;
@@ -80,6 +77,9 @@ nav a {
 .dropdown:hover .dropdown-content {
   display: block; }
 
+label {
+  display: block; }
+
 .homepage {
   display: flex;
   justify-content: space-around; }
@@ -89,5 +89,8 @@ nav a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center; }
+
+footer {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
