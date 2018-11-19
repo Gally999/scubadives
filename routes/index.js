@@ -20,8 +20,8 @@ router.get('/padi', (req, res, next) =>{
 });
 
 // Courses SSL page
-router.get('/ssl', (req, res, next) =>{
-  res.render('../views/course-route/ssl.hbs');
+router.get('/ssi', (req, res, next) =>{
+  res.render('../views/course-route/ssi.hbs');
 });
 
 // Courses SDI page
