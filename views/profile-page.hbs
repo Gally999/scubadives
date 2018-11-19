@@ -1,0 +1,17 @@
+<h2>My Profile</h2>
+
+<p>First Name : {{currentUser.firstName}}</p>
+<p>Last Name : {{currentUser.lastName}}</p>
+<p>Email : {{currentUser.email}}</p>
+<p>Certification Organization : {{currentUser.organization}}</p>
+<p>Certification number : {{currentUser.certNb}}</p>
+<p>Main certification : {{currentUser.mainCert}}</p>
+{{#if currentUser.secCert}}
+<p>{{currentUser.secCert}}</p>
+{{/if}}
+
+{{#each currentUser.speciality}}
+<li>{{this}}</li>
+{{/each}}
+
+<button><a href="/edit-profile">Edit my profile</a></button>

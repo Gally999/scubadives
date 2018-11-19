@@ -11,7 +11,7 @@ const path         = require('path');
 const session      = require('express-session');
 const flash        = require('connect-flash');
 const MongoStore   = require('connect-mongo')(session);
-const passport     = require ('passport');
+const passport     = require('passport');
 
 // run the code inside 'passport-setup.js and google-strategy.js'
 require('./config/passport/passport-setup.js');
