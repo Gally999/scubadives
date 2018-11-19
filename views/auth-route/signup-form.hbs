@@ -1,6 +1,5 @@
-    <h2>Sign Up Now!</h2>
-    {{> flash_messages}}
-    
+<div>
+    <h3>Sign Up Now!</h3>
     <form action="/add-user" method="POST">
         <label>
             First Name:
@@ -315,15 +314,15 @@
         </label>
         <label for="secondarycertification">
             Secondary Certification:
-            <select name="secCert" id="secondarycertification">
+            <select name="secCert" id="secondarycertification" multiple>
                 <option value="None">None</option>
-                <option value="Dive Master">Altitude Diver</option>
+                <option value="Dive Master">Dive Master</option>
                 <option value="Open Water Scuba Instructor">Open Water Scuba Instructor</option>
             </select>
         </label>
         <label for="special">
             Speciality:
-            <select name="speciality" id="special">
+            <select name="speciality" id="special" multiple>
                 <option value="None">None</option>
                 <option value="Altitude Diver">Altitude Diver</option>
                 <option value="Boat Diver">Boat Diver</option>
@@ -342,3 +341,4 @@
         </label>
         <button>Sign Me Up!</button>
     </form>
+</div>

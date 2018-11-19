@@ -1,5 +1,7 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+header, body, footer {
+  font-family: 'Montserrat';
 }
 
 label {
@@ -88,4 +90,16 @@ nav a {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.homepage {
+  display: flex;
+  justify-content: space-around;
+}
+
+.section1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
