@@ -1,8 +1,6 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
-label {
-  display: block; }
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+header, body, footer {
+  font-family: 'Montserrat'; }
 
 .error-message {
   border: 3px solid;
@@ -78,5 +76,21 @@ nav a {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block; }
+
+label {
+  display: block; }
+
+.homepage {
+  display: flex;
+  justify-content: space-around; }
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+footer {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
