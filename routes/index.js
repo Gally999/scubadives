@@ -69,4 +69,9 @@ router.get('/sdi', (req, res, next) =>{
   res.render('../views/course-route/sdi.hbs');
 });
 
+//About Us page
+router.get('/about-us', (req, res, next) =>{
+  res.render('about-us.hbs');
+});
+
 module.exports = router;

@@ -2,6 +2,9 @@
 header, body, footer {
   font-family: 'Montserrat'; }
 
+h3 {
+  padding: 0 25px; }
+
 .error-message {
   border: 3px solid;
   border-radius: 3px;
@@ -93,8 +96,18 @@ label {
 
 .courses {
   display: flex;
-  justify-content: space-between;
-  padding: 0 100px; }
+  padding: 0 25px; }
+
+.course-info {
+  width: 35%; }
+
+.course-info1 img {
+  width: 150%;
+  height: 60%; }
+
+.course-info2 img {
+  width: 150%;
+  height: 90%; }
 
 footer {
   text-align: center; }
