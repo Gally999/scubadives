@@ -32,8 +32,10 @@ router.post('/add-user', (req,res,next) =>{
         }
         User.create(toCreate)
         .then(userDoc =>{
-            req.flash("success", "Created Successfully");
-            res.redirect('/login');
+            req.logIn(userDoc, () => {
+                req.flash("success", "Congrats, your account was created successfully!");
+                res.redirect("/");
+            });
         })
         .catch(err =>next(err))
     })
