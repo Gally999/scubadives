@@ -26,7 +26,11 @@ router.post('/add-user', (req,res,next) =>{
         }
 
         const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-        User.create({firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert, secCert, speciality,})
+        let toCreate = {firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert}
+        if (speciality !== "nope"){
+            toCreate = {firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert, secCert, speciality,}
+        }
+        User.create(toCreate)
         .then(userDoc =>{
             req.flash("success", "Created Successfully");
             res.redirect('/login');

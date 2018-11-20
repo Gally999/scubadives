@@ -44,19 +44,11 @@ const userSchema = new Schema({
     },
     secCert:{
         type: String,
-<<<<<<< HEAD
-        enum:[" ", "Dive Master", "Open Water Scuba Instructor"],
-    },
-    speciality:{
-        type: [String],
-        enum:[" ", "Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver" , "Search and Recovery Diver", "Emergency First Response Provider", "Ice Diver"],
-=======
         enum:["","Dive Master", "Open Water Scuba Instructor"],
     },
     speciality:{
         type: [String],
         enum:["", "Altitude Diver", "Boat Diver", "Fish Identification", "Drift Diver", "Peak Performance Buoyancy", "Night Diver", "Wreck Diver", "Dry Suit Diver", "Advanced Rebreather Diver", "Deep Diver", "Cave Diver" , "Search and Recovery Diver", "Emergency First Response Provider", "Ice Diver"],
->>>>>>> c11896088fd3a89271e78b0c9f733f1183e76b4d
 
     },
     role:{

@@ -49,8 +49,9 @@
             </div>
         </div>
     </div>
-
-
+    {{#if currentUser}}
+    
+    {{else}}
     <div>
         <h3>Sign Up Now!</h3>
         <form action="/add-user" method="POST">
@@ -371,7 +372,7 @@
             <label for="secondarycertification">
                 Secondary Certification:
                 <select name="secCert" id="secondarycertification" multiple>
-                    <option value=" ">None</option>
+                    <option value="nope">None</option>
                     <option value="Dive Master">Dive Master</option>
                     <option value="Open Water Scuba Instructor">Open Water Scuba Instructor</option>
                 </select>
@@ -379,7 +380,7 @@
             <label for="special">
                 Speciality:
                 <select name="speciality" id="special" multiple>
-                    <option value=" ">None</option>
+                    <option value="nope">None</option>
                     <option value="Altitude Diver">Altitude Diver</option>
                     <option value="Boat Diver">Boat Diver</option>
                     <option value="Fish Identification">Fish Identification</option>
@@ -398,4 +399,5 @@
             <button>Sign Me Up!</button>
         </form>
     </div>
+    {{/if}}
 </div>

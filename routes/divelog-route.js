@@ -7,8 +7,8 @@ router.get('/add-dive', (req, res, next) =>{
   res.render('divelog-route/add-divelog.hbs')
 });
 
-router.post('/added-dive', (req,res,next) =>{
-  const {diveNb, }
-});
+// router.post('/added-dive', (req,res,next) =>{
+//   // const {diveNb, }
+// });
 
 module.exports = router;
