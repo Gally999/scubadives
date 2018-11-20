@@ -8,19 +8,22 @@
 <p>Certification number : {{currentUser.certNb}}</p>
 <p>Main certification : {{currentUser.mainCert}}</p>
 {{#if currentUser.secCert}}
-<p>{{currentUser.secCert}}</p>
+<p> Other certifications: {{currentUser.secCert}}</p>
 {{/if}}
 
-{{#each currentUser.speciality}}
-<li>{{this}}</li>
-{{/each}}
+{{#if currentUser.speciality}}
+  <p>Specialities:</p>
+  {{#each currentUser.speciality}}
+    <li>{{this}}</li>
+  {{/each}}
+{{/if}}
 
 <button><a href="/edit-profile">Edit my profile</a></button>
 </div>
 
+{{!-- 
 <div>
   {{#each divelogsArray}}
 
 </div>
-
-
+--}}

@@ -49,7 +49,7 @@ router.post("/process-edit", (req, res, next) => {
     )
     .then(userDoc => {
       req.flash("success", "You have successfully updated your profile");
-      req.redirect("/profile");
+      res.redirect("/profile");
     })
     .catch(err => next (err));
 });

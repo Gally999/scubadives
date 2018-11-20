@@ -103,12 +103,60 @@ mongoose
 //   });
 
 
+// Creation of dive sites
+
+const divesites = [
+  {
+    name: "USAT Liberty",
+    city: "Tulamben",
+    country: "ID", 
+    rating: 5, 
+    reviews: [{
+      user: "5bf2d3ae3682de154cb99565",
+      comments: "C'était supair !",
+  }]
+  }, 
+  {
+    name: "Blue Hole",
+    city: "Belize City",
+    country: "BZ", 
+    rating: 5, 
+    reviews: [{
+      user: "5bf2d3ae3682de154cb99565",
+      comments: "Amazingly blue!",
+  }]
+  },
+  {
+    name: "Playa Blanca",
+    city: "Playa Blanca",
+    country: "ES", 
+    rating: 3, 
+    reviews: [{
+      user: "5bf2d3f0c46dad49502e9afc",
+      comments: "We can see angel sharks!",
+    }]
+  },
+  {
+    name: "Playa Blanca",
+    city: "Playa Blanca",
+    country: "ES", 
+    rating: 3, 
+    reviews: [{
+      user: "5bf2d3f0c46dad49502e9afc",
+      comments: "We can see angel sharks!",
+  }]
+  },
+]
+
+
+
+
 // Creation of divelogs
 
 const divelogs = [
   {
     diveNb: 1,
-    divesite: "SS Liberty",
+    divesite: "USAT Liberty",
     date: 2018-01-21,
     depthInfo: "m",
     depth: 20, 
@@ -128,6 +176,54 @@ const divelogs = [
     comments: ["C'était supair !"],
     rating: 5,
     divesiteReviews: "Très beau site, il faut y aller",
+  }, 
+  {
+    diveNb: 2,
+    divesite: "SS Liberty",
+    date: 2018-01-21,
+    depthInfo: "m",
+    depth: 20, 
+    weightNb: 5,
+    weightInfo: "kg",
+    suitThickness: "5mm",
+    airInfo: "bars",
+    airInNb: 220, 
+    airOut: 50,
+    diveTime: 43,
+    entryTime: "11:00",
+    exitTime: "11:43",
+    user: "5bf2d3ae3682de154cb99565",
+    buddy: "5bf2d3ae3682de154cb99564", 
+    guide: "5bf2d3ae3682de154cb99567",
+    shop: ,
+    seen:  ["Turtles"] ,
+    comments: ["C'était supair !"],
+    rating: 5,
+    divesiteReviews: "Très beau site, il faut y aller",
+  }, 
+  {
+    diveNb: 1,
+    divesite: "Playa Blanca",
+    date: 2018-01-21,
+    depthInfo: "m",
+    depth: 20, 
+    weightNb: 5,
+    weightInfo: "kg",
+    suitThickness: "5mm",
+    airInfo: "bars",
+    airInNb: 220, 
+    airOut: 50,
+    diveTime: 43,
+    entryTime: "11:00",
+    exitTime: "11:43",
+    user: "5bf2d3f0c46dad49502e9afc",
+    buddy: "5bf2d3ae3682de154cb99564", 
+    guide: "5bf2d3ae3682de154cb99567",
+    shop: ,
+    seen:  ["Turtles"] ,
+    comments: ["We can see angel sharks!"],
+    rating: 5,
+    divesiteReviews: "We can see angel sharks!",
   }, 
   {
     diveNb: 2,
@@ -178,55 +274,7 @@ const divelogs = [
     divesiteReviews: "Très beau site, il faut y aller",
   }, 
   {
-    diveNb: 1,
-    divesite: "SS Liberty",
-    date: 2018-01-21,
-    depthInfo: "m",
-    depth: 20, 
-    weightNb: 5,
-    weightInfo: "kg",
-    suitThickness: "5mm",
-    airInfo: "bars",
-    airInNb: 220, 
-    airOut: 50,
-    diveTime: 43,
-    entryTime: "11:00",
-    exitTime: "11:43",
-    user: "5bf2d3ae3682de154cb99565",
-    buddy: "5bf2d3ae3682de154cb99564", 
-    guide: "5bf2d3ae3682de154cb99567",
-    shop: ,
-    seen:  ["Turtles"] ,
-    comments: ["C'était supair !"],
-    rating: 5,
-    divesiteReviews: "Très beau site, il faut y aller",
-  }, 
-  {
-    diveNb: 1,
-    divesite: "SS Liberty",
-    date: 2018-01-21,
-    depthInfo: "m",
-    depth: 20, 
-    weightNb: 5,
-    weightInfo: "kg",
-    suitThickness: "5mm",
-    airInfo: "bars",
-    airInNb: 220, 
-    airOut: 50,
-    diveTime: 43,
-    entryTime: "11:00",
-    exitTime: "11:43",
-    user: "5bf2d3ae3682de154cb99565",
-    buddy: "5bf2d3ae3682de154cb99564", 
-    guide: "5bf2d3ae3682de154cb99567",
-    shop: ,
-    seen:  ["Turtles"] ,
-    comments: ["C'était supair !"],
-    rating: 5,
-    divesiteReviews: "Très beau site, il faut y aller",
-  }, 
-  {
-    diveNb: 1,
+    diveNb: 2,
     divesite: "SS Liberty",
     date: 2018-01-21,
     depthInfo: "m",
