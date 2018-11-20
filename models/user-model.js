@@ -4,17 +4,12 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     firstName: {
         type:String,
-        required: true,
-        minlength: 2,
     },
     lastName: {
         type:String,
-        required: true,
-        minlength: 2,
     },
     nationality: {
         type:String,
-        required: true,
         minlength: 2,
     },
     email: {
@@ -29,17 +24,14 @@ const userSchema = new Schema({
     organization:{
         type: String,
         enum:["PADI", "SSI", "SDI"],
-        required: true,
     },
     certNb:{
         type: String,
-        required: true,
         unique: true,
     },
     mainCert:{
         type: String,
         enum:["Scuba Diver", "Open Water", "Adventure Diver", "Advanced Open Water", "Rescue Diver", "Master Scuba Diver"],
-        required: true,
         default: "Scuba Diver",
     },
     secCert:{
