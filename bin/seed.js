@@ -137,13 +137,13 @@ const divesites = [
     }]
   },
   {
-    name: "Playa Blanca",
-    city: "Playa Blanca",
-    country: "ES", 
-    rating: 3, 
+    name: "Secca di Capistello",
+    city: "Lipari",
+    country: "IT", 
+    rating: 2, 
     reviews: [{
       user: "5bf2d3f0c46dad49502e9afc",
-      comments: "We can see angel sharks!",
+      comments: "Nice wall!",
   }]
   },
 ]
