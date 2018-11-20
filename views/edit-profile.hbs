@@ -47,8 +47,7 @@
   <label for="secondarycertification">
     Secondary Certification:
     <select name="secCert" id="secondarycertification">
-        <option value="{{currentUser.secCert}}">{{currentUser.secCert}}</option>
-        <option value="None">None</option>
+        <option value="" disabled selected value>{{#if currentUser.secCert}}{{currentUser.secCert}}{{/if}}None</option>
         <option value="Dive Master">Dive Master</option>
         <option value="Open Water Scuba Instructor">Open Water Scuba Instructor</option>
     </select>
@@ -56,9 +55,9 @@
 
   <label for="special">
     Speciality:
-    <select name="speciality" id="special" multiple >
-        <option value="{{currentUser.speciality.O}}">{{currentUser.speciality.O}}</option>
-        <option value="None">None</option>
+    <select name="speciality" id="special" >
+         {{!-- <option value="">{{#if currentUser.speciality.0}}{{currentUser.speciality.O}}{{/if}}None</option> --}}
+        <option value="nope">None</option>
         <option value="Altitude Diver">Altitude Diver</option>
         <option value="Boat Diver">Boat Diver</option>
         <option value="Fish Identification">Fish Identification</option>
