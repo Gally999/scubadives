@@ -31,27 +31,34 @@ router.get("/edit-profile", (req, res, next) => {
 });
 
 router.post("/process-edit", (req, res, next) => {
-  const { firstName, lastName, email, organization, certNb, mainCert, secCert, speciality } = req.body
-
-  // will need to check if a speciality was added before pushing it to the db, otherwise we will have it twice
+  const { firstName, lastName, email, organization, certNb, mainCert, secCert, speciality } = req.body;
+  
+  let mySpeciality;
   User.findById(req.user._id)
     .then(userDoc => {
-      if (userDoc.speciality.includes(speciality)){
-        speciality = null;
+      // We check if a speciality was added during the editing ("nope" is the value in the select input of the form)
+        // we check if the selected speciality was already in the array before pushing it to the db, otherwise we will have it twice
+      let index = userDoc.speciality.indexOf(speciality);
+      console.log("index =" + index);
+      if ((speciality !== "nope") && (index === -1)) {
+          userDoc.speciality.push(speciality);
       }
+      mySpeciality = userDoc.speciality;
+
+      // Then we search by Id and Update the db
+      User.findByIdAndUpdate(
+        req.user._id, 
+        { $set: { firstName, lastName, email, organization, certNb, mainCert, secCert, speciality: mySpeciality } }, 
+        { runValidators: true },
+        )
+        .then(userDoc => {
+          req.flash("success", "You have successfully updated your profile");
+          res.redirect("/profile");
+        })
+        .catch(err => next (err));
+    // back to the original loop
     })
     .catch(err => next(err));
-
-  User.findByIdAndUpdate(
-    req.user._id, 
-    { $set: { firstName, lastName, email, organization, certNb, mainCert, secCert }, $push: { speciality } }, 
-    { runValidators: true },
-    )
-    .then(userDoc => {
-      req.flash("success", "You have successfully updated your profile");
-      res.redirect("/profile");
-    })
-    .catch(err => next (err));
 });
 
 // Courses PADI page
