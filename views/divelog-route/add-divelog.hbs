@@ -1,0 +1,81 @@
+<h2>Add Dive Log</h2>
+
+<form action="/added-dive" method="POST">
+<label>
+  Date:
+  <input type="date" name="date" placeholder="01-06-18">
+</label>
+<label>
+  Dive Number:
+  <input type="number" name="diveNb" placeholder="01">
+</label>
+<label>
+  Dive Site:
+  <input type="text" name="divesite" placeholder="Manta Point">
+</label>
+<label for="depthdive">
+  Dive Depth:
+  <input type="number" name="depth" placeholder="25">
+  <select name="depthInfo" id="depthdive">
+    <option value="m" >M</option>
+    <option value="ft">Ft</option>
+    </select>
+</label>
+<label for="weightdive">
+  Weights:
+  <input type="number" name="weightNb" placeholder="05">
+  <select name="weightInfo" id="weightdive">
+    <option value="kg" >KG</option>
+    <option value="lbs">LBS</option>
+    </select>
+</label>
+<label>
+  Suit Thickness:
+  <input type="text" name="suitThickness" placeholder="7mm Long">
+</label>
+<label for="airs">
+  Air Info:
+  <select name="airInfo" id="airs">
+    <option value="psi" >PSI</option>
+    <option value="bars">Bars</option>
+    </select>
+</label>
+<label>
+  Air In:
+  <input type="number" name="airInNb" placeholder="250">
+</label>
+<label>
+  Air Out:
+  <input type="number" name="airOut" placeholder="80">
+</label>
+<label>
+  Dive Time:
+  <input type="number" name="diveTime" placeholder="42">
+</label>
+<label>
+  Entry Time:
+  <input type="time" name="entryTime" placeholder="13:00">
+</label>
+<label>
+  Exit Time:
+  <input type="time" name="exitTime" placeholder="14:00">
+</label>
+<label>
+  What did you see:
+  <input type="text" name="seen" placeholder="Stingray, turtles">
+</label>
+<label>
+  Comments:
+  <input type="text" name="comments" placeholder="C'est bonne">
+</label>
+<label>
+  Ratings:
+  <input type="number" name="rating" placeholder="2">/5
+</label>
+<label>
+  Reviews (on Divesite):
+  <input type="text" name="divesiteReviews" placeholder="The whole place is so good">
+</label>
+
+<button>Add a Dive</button>
+</form>

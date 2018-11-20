@@ -86,6 +86,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const authRoute = require('./routes/auth-route');
 app.use('/', authRoute);
+const diveRoute = require('./routes/divelog-route');
+app.use('/', diveRoute);
 
 
 module.exports = app;

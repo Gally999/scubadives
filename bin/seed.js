@@ -148,9 +148,6 @@ const divesites = [
   },
 ]
 
-
-
-
 // Creation of divelogs
 
 const divelogs = [

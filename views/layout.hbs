@@ -12,31 +12,36 @@
 <body>
   <header>
     <nav>
-      <div class="topnav" id="myTopnav"></div>
-      <a href="/">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Courses
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="/padi">Professional Association of Diving Instructors(PADI)</a>
-          <a href="/ssi">Scuba School International (SSI)</a>
-          <a href="/sdi">Scuba Diving International (SDI)</a>
+      <div>
+        <a href="/">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn">Courses
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/padi">Professional Association of Diving Instructors(PADI)</a>
+            <a href="/ssi">Scuba School International (SSI)</a>
+            <a href="/sdi">Scuba Diving International (SDI)</a>
+          </div>
         </div>
+        <a href="/divesite">Dive Sites</a>
+        <a href="/about-us">About Us</a>
       </div>
-      <a href="/divesite">Dive Sites</a>
-      <a href="/about-us">About Us</a>
-      {{#if currentUser}}
-      <a href="/profile">Profile</a>
-      <a href="/logout">Log Out</a>
-      {{else}}
-      <a href="/login">Log In</a>
-      <a href="/signup">Sign Up</a>
-      {{/if}}
+      <div>
+        {{#if currentUser}}
+        <a href="/profile">Profile</a>
+        <a href="/divelog">Dive Logs</a>
+        <a href="/logout">Log Out</a>
+        {{else}}
+        <a href="/login">Log In</a>
+        <a href="/signup">Sign Up</a>
+        {{/if}}
+      </div>
+
       </div>
     </nav>
   </header>
-  
+
   {{{body}}}
 
   <footer>

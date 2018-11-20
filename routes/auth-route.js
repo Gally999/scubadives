@@ -1,6 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-//const passport = require('passport');
+const passport = require('passport');
 const User = require("../models/user-model.js");
 const router = express.Router();
 
@@ -29,7 +29,7 @@ router.post('/add-user', (req,res,next) =>{
         User.create({firstName, lastName, nationality, email, encryptedPassword, organization, certNb, mainCert, secCert, speciality,})
         .then(userDoc =>{
             req.flash("success", "Created Successfully");
-            res.redirect('/');
+            res.redirect('/login');
         })
         .catch(err =>next(err))
     })

@@ -21,7 +21,9 @@ h3 {
 nav {
   overflow: hidden;
   background-color: #333;
-  font-family: Arial; }
+  font-family: Arial;
+  display: flex;
+  justify-content: space-between; }
 
 /* Links inside the navbar */
 nav a {

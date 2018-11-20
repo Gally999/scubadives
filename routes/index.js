@@ -18,12 +18,12 @@ router.get('/', (req, res, next) => {
 
 // Access profile page 
 router.get("/profile", (req, res, next) => {
-  // if (!req.user) {
-  //   req.flash("error", "You have to be logged-in to visit the Profile page!");
-  //   res.redirect("/login");
-  // } else {
+  if (!req.user) {
+    req.flash("error", "You have to be logged-in to visit the Profile page!");
+    res.redirect("/login");
+  } else {
     res.render("profile-page.hbs");
-  // }
+  }
 });
 
 router.get("/edit-profile", (req, res, next) => {
@@ -72,6 +72,16 @@ router.get('/sdi', (req, res, next) =>{
 //About Us page
 router.get('/about-us', (req, res, next) =>{
   res.render('about-us.hbs');
+});
+
+//Dive Log page
+router.get('/divelog', (req, res, next) =>{
+  if(!req.user){
+    req.flash("error", "You have to be logged-in to visit the DIVE LOGS page!");
+    res.redirect("/login");
+  } else {
+  res.render('../views/divelog-route/list-divelog.hbs');
+  }
 });
 
 module.exports = router;
