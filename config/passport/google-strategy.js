@@ -4,8 +4,8 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const User = require("../../models/user-model.js");
 
 passport.use(new GoogleStrategy({
-  clientID: "729213949151-gm9fnflhtnh6u9kjoj83caorr9l8k2ol.apps.googleusercontent.com", 
-  clientSecret: "HFrLjbPfcfHBUUTWNJ0XIYTA",
+  clientID: process.env.GOOGLE_CLIENT_ID, 
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "/google/user-info",
   proxy: true,
 }, (accessToken, refreshToken, userInfo, done) => {
