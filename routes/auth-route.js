@@ -32,8 +32,10 @@ router.post('/add-user', (req,res,next) =>{
         }
         User.create(toCreate)
         .then(userDoc =>{
-            req.flash("success", "Created Successfully");
-            res.redirect('/login');
+            req.logIn(userDoc, () => {
+                req.flash("success", "Congrats, your account was created successfully!");
+                res.redirect("/");
+            });
         })
         .catch(err =>next(err))
     })
@@ -76,7 +78,23 @@ router.get('/logout', (req,res,next) =>{
     res.redirect('/');
 });
 
+// Visiting "/google/login" will redirect the user to Google for logging-in
+router.get("/google/login", 
+    passport.authenticate("google", {
+        scope: [
+        "https://www.googleapis.com/auth/plus.login",
+        "https://www.googleapis.com/auth/plus.profile.emails.read",
+        ]
+    }
+    ));
 
-
+    // This is where users will be redirected to after accepting Google Login 
+    router.get("/google/user-info", 
+        passport.authenticate("google", {
+            successRedirect: "/",
+            successFlash: "Google Login successful!", 
+            failureRedirect: "/login", 
+            failureFlash: "Google login failed!",
+        }));
 
 module.exports = router;

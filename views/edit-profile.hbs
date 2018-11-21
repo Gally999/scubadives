@@ -57,8 +57,7 @@
   <label for="special">
     Speciality:
     <select name="speciality" id="special" >
-         {{!-- <option value="">{{#if currentUser.speciality.0}}{{currentUser.speciality.O}}{{/if}}None</option> --}}
-        <option value="nope">None</option>
+        <option value="nope">{{#if currentUser.speciality.0}}{{currentUser.speciality.O}}{{/if}}None</option>
         <option value="Altitude Diver">Altitude Diver</option>
         <option value="Boat Diver">Boat Diver</option>
         <option value="Fish Identification">Fish Identification</option>

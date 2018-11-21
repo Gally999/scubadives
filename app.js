@@ -15,7 +15,7 @@ const passport     = require('passport');
 
 // run the code inside 'passport-setup.js and google-strategy.js'
 require('./config/passport/passport-setup.js');
-// require('./config/passport/google-strategy');
+require('./config/passport/google-strategy');
 
 mongoose
   .connect('mongodb://localhost/scubadives', {useNewUrlParser: true})
