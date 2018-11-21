@@ -221,6 +221,11 @@ label {
 .diveloglink {
   padding: 0 25px; }
 
+.divelogs-profile-page {
+  display: flex;
+  margin: 0 auto;
+  width: 90%; }
+
 footer {
   text-align: center; }
 

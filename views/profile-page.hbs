@@ -23,12 +23,11 @@
 </div>
 
 
-<div>
+<div class="divelogs-profile-page">
   {{#each divelogArray}}
-    <li>
-    <p>Dive#{{this.diveNb}}</p>
-    <p>Divesite Name: {{this.divesite.name}}</p>
-    <p>Date: {{this.date}}</p>
+    <div>
+    <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
+    <p>Date: {{this.shortDate}}</p>
     <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
     <p>Dive Time: {{this.diveTime}}</p>
     <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
@@ -42,8 +41,6 @@
     <p>You rated this dive: {{this.rating}}/5</p>
     <p>Your review of this divesite: {{this.divesiteReviews}}</p>
     <button><a href="/dive/{{this._id}}/editdive">Update this dive!</a></button>
-
-
-    </li>
+    </div>
   {{/each}}
 </div>

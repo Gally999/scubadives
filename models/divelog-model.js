@@ -1,6 +1,7 @@
 const mongoose=require("mongoose");
 const Schema = mongoose.Schema;
 
+const moment = require("moment");
 
 const divelogSchema = new Schema({
   diveNb: {
@@ -65,6 +66,13 @@ const divelogSchema = new Schema({
 },{
   timestamps:true,
 });
+
+
+
+// used npm package "moment" to format the date to a more readable format // don't use arrow funtion (binding necessary)
+divelogSchema.virtual("shortDate").get(function() {
+  return moment(this.date).format("YYYY/MM/DD");
+})
 
 
 const Divelog = mongoose.model("Divelog", divelogSchema);
