@@ -20,7 +20,8 @@ router.post('/adddive', (req,res,next) =>{
   const user = req.user._id;
   Divesite.findOne({name: {$eq: divesite}})
   .then(oneDive =>{
-    Divelog.create({diveNb, date, divesite : oneDive._id, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews, user})
+    const divesite = oneDive._id;
+    Divelog.create({diveNb, date, divesite, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews, user})
     .then(diveDoc =>{
       req.flash("success", "Dive Log created successfully");
       res.redirect('/divelog');
@@ -39,7 +40,7 @@ router.get('/dive/:diveId/editdive', (req, res, next) =>{
     //res.send(oneDive);
     res.locals.oneEdit = oneDive;
     res.locals.dateValue = oneDive.date.toISOString().substr(0, 10);
-    console.log(oneDive.divesite.name);
+    //console.log(oneDive.divesite.name);
     res.render('divelog-route/edit-divelog.hbs')
   })
   .catch(err => next(err));
@@ -56,7 +57,7 @@ router.post('/dive/:diveId/editprocess', (req,res, next) =>{
       {$set: {divesite, diveNb, date, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews}},
       { runValidators: true }    )
       .then(diveDoc =>{
-        res.redirect('/divelog');
+        res.redirect('/dive/:diveId');
       })
       .catch(err=>next(err));
     })
@@ -64,7 +65,7 @@ router.post('/dive/:diveId/editprocess', (req,res, next) =>{
 });
 
 //Delete DiveLog
-router.get('dive/:diveId/delete', (req, res, next) =>{
+router.get('/dive/:diveId/delete', (req, res, next) =>{
   const {diveId} = req.params;
   Divelog.findByIdAndRemove(diveId)
   .then(diveresult =>{

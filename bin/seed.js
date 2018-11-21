@@ -5,7 +5,7 @@ const Divesite = require("../models/divesite-model");
 
 mongoose
   .connect(
-    "mongodb://localhost/scubadives",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true }
   )
   .then(x => {
