@@ -24,7 +24,14 @@ router.get("/profile", (req, res, next) => {
     req.flash("error", "You have to be logged-in to visit the Profile page!");
     res.redirect("/login");
   } else {
-    res.render("profile-page.hbs");
+    Divelog.find({ user: { $eq: req.user._id } })
+      .populate("divesite")
+      .then(divelogResults => {
+        res.locals.divelogArray = divelogResults;
+        res.render("profile-page.hbs");
+      })
+      .catch(err => next(err));
+    
   }
 });
 
