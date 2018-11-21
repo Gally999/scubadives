@@ -28,10 +28,12 @@ router.get("/profile", (req, res, next) => {
   }
 });
 
+// Access the edit profile page
 router.get("/edit-profile", (req, res, next) => {
   res.render("edit-profile.hbs");
 });
 
+// Process the edition of the profile
 router.post("/process-edit", (req, res, next) => {
   const { firstName, lastName, email, organization, certNb, mainCert, secCert, speciality } = req.body;
   
@@ -61,6 +63,22 @@ router.post("/process-edit", (req, res, next) => {
     // back to the original loop
     })
     .catch(err => next(err));
+});
+
+// If user wants to delete a speciality directly in the edit page
+router.post("/speciality-delete/:speId", (req, res, next) => {
+  const { speId } = req.params;
+  let newSpeArray;
+      User.findByIdAndUpdate(
+        req.user._id,
+        { $pull: { speciality: speId } }, 
+        { runValidators: true} 
+        )
+        .then(userDoc => {
+          req.flash("success", "Speciality successfully removed");
+          res.redirect("/edit-profile");
+        })
+        .catch(err => next(err));
 });
 
 // Courses PADI page
