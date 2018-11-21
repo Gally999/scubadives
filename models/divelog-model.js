@@ -50,8 +50,8 @@ const divelogSchema = new Schema({
   //   type: Schema.Types.ObjectId, 
   //   ref: "Shop"  
   // },
-  seen: { type: [String] },
-  comments: { type: [String] },
+  seen: { type: String },
+  comments: { type: String },
   rating: { 
     type: Number, 
     min: 1,

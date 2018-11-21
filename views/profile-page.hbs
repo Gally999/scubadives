@@ -22,9 +22,28 @@
 <button><a href="/edit-profile">Edit my profile</a></button>
 </div>
 
-{{!-- 
-<div>
-  {{#each divelogsArray}}
 
+<div>
+  {{#each divelogArray}}
+    <li>
+    <p>Dive#{{this.diveNb}}</p>
+    <p>Divesite Name: {{this.divesite.name}}</p>
+    <p>Date: {{this.date}}</p>
+    <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
+    <p>Dive Time: {{this.diveTime}}</p>
+    <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
+    <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
+    <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
+    <p>What you saw: {{this.seen}}</p>
+    {{#if this.comments}}
+    <p>Personal Comment: {{this.comments}}</p>
+    {{/if}}
+
+    <p>You rated this dive: {{this.rating}}/5</p>
+    <p>Your review of this divesite: {{this.divesiteReviews}}</p>
+    <button><a href="/dive/{{this._id}}/editdive">Update this dive!</a></button>
+
+
+    </li>
+  {{/each}}
 </div>
---}}
