@@ -218,6 +218,9 @@ label {
   flex-direction: column;
   padding: 3%; }
 
+.diveloglink {
+  padding: 0 25px; }
+
 footer {
   text-align: center; }
 
