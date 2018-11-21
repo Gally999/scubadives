@@ -78,7 +78,7 @@ app.use((req, res, next) =>{
 
 
 // default value for title local
-app.locals.title = 'Scuba Dives';
+app.locals.title = 'Scub A Dives';
 
 
 

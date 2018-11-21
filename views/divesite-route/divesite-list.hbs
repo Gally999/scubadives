@@ -7,9 +7,9 @@
       <h4>{{this.name}}</h4>
       <h5>{{this.city}}, {{this.country}}</h5>
       <p>{{this.rating}}/5<br>
-      {{#each this.reviews}}
-      {{this.reviews.user._id}}<br>
-      {{this.reviews.comments}}<br>
+      {{#each reviews}}
+      {{this.user.firstName}}{{this.user.lastName}}<br>
+      {{this.comments}}<br>
       {{/each}}
       </p>
     </div>
