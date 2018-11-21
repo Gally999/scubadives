@@ -4,7 +4,7 @@ header, body, footer {
   font-family: 'Montserrat';
 }
 
-h3{
+h1, h2,h3{
   padding: 0 25px;
 }
 
@@ -240,6 +240,25 @@ label {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+//Dive Log Form
+.divelogform{
+  padding: 5%
+}
+
+//Dive Logs display
+.divelog{
+  display: flex;
+}
+
+.onedive{
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+}
+.diveloglink{
+  padding: 0 25px;
 }
 
 //footer

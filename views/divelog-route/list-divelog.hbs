@@ -1,4 +1,32 @@
 <h2>Dive Logs List</h2>
+<a class="diveloglink" href="/dive/add-dive">Add a Dive</a>
+{{> flash_messages}}
 
-
-<a href="/add-dive">Add a Dive</a>
+<div class="divelog">
+  {{#each divelogs}}
+  <div class="onedive">
+    <div>
+      <p>Dive Number: {{this.diveNb}}<br>
+        <h3>{{this.divesite.name}}</h3><br>
+        Date: {{this.date}}<br>
+        Max Dive Depth: {{this.depth}}{{this.depthInfo}}<br>
+        Weights: {{this.weightNb}}{{thisweightInfo}}<br>
+        Suit Thickness: {{this.suitThickness}}<br>
+        Air Info: {{this.airInfo}}<br>
+        Air In: {{this.airInNb}}<br>
+        Air Out: {{this.airOut}}<br>
+        Dive Time: {{this.diveTime}}<br>
+        Entry Time: {{this.entryTime}}<br>
+        Exit Time: {{this.exitTime}}<br>
+        What did you see: {{this.seen}}<br>
+        Comments: {{this.comments}}<br>
+        Ratings: {{this.rating}}/5<br>
+        Reviews about Dive Site: {{this.divesiteReviews}}<br>
+      </p>
+    </div>
+    <div>
+      <a href="/dive/{{this._id}}/editdive">Edit a Dive</a>
+    </div>
+  </div>
+  {{/each}}
+</div>

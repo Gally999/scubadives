@@ -1,6 +1,7 @@
 <h2>Add Dive Log</h2>
+{{> flash_messages}}
 
-<form action="/added-dive" method="POST">
+<form action="/adddive" method="POST" class="divelogform">
 <label>
   Date:
   <input type="date" name="date" placeholder="01-06-18">
@@ -14,8 +15,8 @@
   <input type="text" name="divesite" placeholder="Manta Point">
 </label>
 <label for="depthdive">
-  Dive Depth:
-  <input type="number" name="depth" placeholder="25">
+  Max Dive Depth:
+  <input type="number" name="depth" placeholder="25" min=0>
   <select name="depthInfo" id="depthdive">
     <option value="m" >M</option>
     <option value="ft">Ft</option>
@@ -23,7 +24,7 @@
 </label>
 <label for="weightdive">
   Weights:
-  <input type="number" name="weightNb" placeholder="05">
+  <input type="number" name="weightNb" placeholder="05" min=0>
   <select name="weightInfo" id="weightdive">
     <option value="kg" >KG</option>
     <option value="lbs">LBS</option>
@@ -50,7 +51,7 @@
 </label>
 <label>
   Dive Time:
-  <input type="number" name="diveTime" placeholder="42">
+  <input type="number" name="diveTime" placeholder="42" min=0>
 </label>
 <label>
   Entry Time:
@@ -70,7 +71,7 @@
 </label>
 <label>
   Ratings:
-  <input type="number" name="rating" placeholder="2">/5
+  <input type="number" name="rating" placeholder="2" min=0>/5
 </label>
 <label>
   Reviews (on Divesite):

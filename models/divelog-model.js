@@ -38,14 +38,14 @@ const divelogSchema = new Schema({
     ref: "User", 
     required: true 
   },
-  buddy: {
-    type: Schema.Types.ObjectId, 
-    ref: "User", 
-  }, 
-  guide: { 
-    type: Schema.Types.ObjectId, 
-    ref: "User", 
-  },
+  // buddy: {
+  //   type: Schema.Types.ObjectId, 
+  //   ref: "User", 
+  // }, 
+  // guide: { 
+  //   type: Schema.Types.ObjectId, 
+  //   ref: "User", 
+  // },
   // shop: { 
   //   type: Schema.Types.ObjectId, 
   //   ref: "Shop"  
