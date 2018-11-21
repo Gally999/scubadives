@@ -4,7 +4,7 @@ const Shop = require("../models/shop-model");
 
 mongoose
   .connect(
-    "mongodb://localhost/scubadives",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true }
   )
   .then(x => {
