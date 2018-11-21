@@ -47,16 +47,16 @@
   <label for="secondarycertification">
     Secondary Certification:
     <select name="secCert" id="secondarycertification">
-        <option value="" disabled selected value>{{#if currentUser.secCert}}{{currentUser.secCert}}{{/if}}None</option>
+        <option value="" disabled selected value>{{#if currentUser.secCert}}{{currentUser.secCert}}{{else}}None{{/if}}</option>
         <option value="Dive Master">Dive Master</option>
         <option value="Open Water Scuba Instructor">Open Water Scuba Instructor</option>
     </select>
   </label>
 
   <label for="special">
-    Speciality:
     <select name="speciality" id="special" >
-        <option value="nope">{{#if currentUser.speciality.0}}{{currentUser.speciality.O}}{{/if}}None</option>
+         <option value="nope">Add new speciality</option>
+        {{!-- <option value="nope">None</option> --}}
         <option value="Altitude Diver">Altitude Diver</option>
         <option value="Boat Diver">Boat Diver</option>
         <option value="Fish Identification">Fish Identification</option>
@@ -76,3 +76,11 @@
 
   <button>Confirm my changes</button>
 </form>
+
+
+{{#if currentUser.speciality}}
+    <p>You currently have the following specialities, click on the x to remove one :</p>
+    {{#each currentUser.speciality}}
+      <li>{{this}} <form action="/speciality-delete/{{this}}" method="post"><button>x</button></form></li>
+    {{/each}}
+  {{/if}}
