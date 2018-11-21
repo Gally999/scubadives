@@ -242,6 +242,17 @@ label {
   align-items: center;
 }
 
+//Dive Logs
+.divelog{
+  display: flex;
+}
+
+.onedive{
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+}
+
 //footer
 footer{
   text-align: center;

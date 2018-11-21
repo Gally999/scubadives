@@ -63,5 +63,7 @@ router.post('/dive/:diveId/editprocess', (req,res, next) =>{
     .catch(err=>next(err));
 });
 
+//Delete DiveLog
+
 
 module.exports = router;
