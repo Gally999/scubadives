@@ -1,5 +1,7 @@
 const express = require('express');
 const User = require('../models/user-model');
+const Divelog = require('../models/divelog-model');
+const Divesite = require('../models/divesite-model');
 const router  = express.Router();
 
 /* GET home page */
@@ -83,12 +85,20 @@ router.get('/about-us', (req, res, next) =>{
 
 //Dive Log page
 router.get('/divelog', (req, res, next) =>{
-  if(!req.user){
-    req.flash("error", "You have to be logged-in to visit the DIVE LOGS page!");
-    res.redirect("/login");
-  } else {
-  res.render('../views/divelog-route/list-divelog.hbs');
-  }
+  Divelog.find()
+  .populate("divesite")
+  .then(userDives =>{
+    //res.send(userDives)
+    res.locals.divelogs = userDives;
+    if(!req.user){
+        req.flash("error", "You have to be logged-in to visit the DIVE LOGS page!");
+        res.redirect("/login");
+      } else {
+        res.render('../views/divelog-route/list-divelog.hbs');
+    }
+  })
+  .catch(err=> next(err));
+ 
 });
 
 module.exports = router;
