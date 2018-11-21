@@ -126,16 +126,9 @@ router.get("/divelog", (req, res, next) => {
     req.flash("error", "You have to be logged-in to visit the DIVE LOGS page!");
     res.redirect("/login");
   } else {
-
-    Divelog.find()
-    .populate("divesite", "user")
+    Divelog.find({user : {$eq: req.user._id}})
+    .populate("divesite")
     .then(userDives => {
-      // console.log(req.user._id)
-      // console.log(userDives[0].user)
-     res.locals.userId = 
-     req.user._id.toString() === userDives[0].user.toString()
-     console.log(res.locals.userId)
-        //res.send(userDives[0].user)
         res.locals.divelogs = userDives;
         res.render("../views/divelog-route/list-divelog.hbs");
       })
