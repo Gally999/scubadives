@@ -64,6 +64,13 @@ router.post('/dive/:diveId/editprocess', (req,res, next) =>{
 });
 
 //Delete DiveLog
-
+router.get('dive/:diveId/delete', (req, res, next) =>{
+  const {diveId} = req.params;
+  Divelog.findByIdAndRemove(diveId)
+  .then(diveresult =>{
+    res.redirect('/divelog');
+  })
+  .catch(err => next(err))
+})
 
 module.exports = router;
