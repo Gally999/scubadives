@@ -30,5 +30,38 @@ router.post('/adddive', (req,res,next) =>{
   .catch(err => next(err));
 });
 
+//Update DiveLogs
+router.get('/dive/:diveId/editdive', (req, res, next) =>{
+  const {diveId} = req.params;
+  Divelog.findById(diveId)
+  .populate("divesite")
+  .then(oneDive =>{
+    //res.send(oneDive);
+    res.locals.oneEdit = oneDive;
+    res.locals.dateValue = oneDive.date.toISOString().substr(0, 10);
+    console.log(oneDive.divesite.name);
+    res.render('divelog-route/edit-divelog.hbs')
+  })
+  .catch(err => next(err));
+});
+
+router.post('/dive/:diveId/editprocess', (req,res, next) =>{
+  const {diveId} = req.params;
+  const {divesite, diveNb, date, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews} = req.body;
+  Divesite.findOne({name: {$eq: divesite}})
+  .then(diveResult =>{
+    const divesite = diveResult._id;
+    Divelog.findByIdAndUpdate(
+      diveId,
+      {$set: {divesite, diveNb, date, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews}},
+      { runValidators: true }    )
+      .then(diveDoc =>{
+        res.redirect('/divelog');
+      })
+      .catch(err=>next(err));
+    })
+    .catch(err=>next(err));
+});
+
 
 module.exports = router;

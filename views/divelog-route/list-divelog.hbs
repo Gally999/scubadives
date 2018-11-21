@@ -7,7 +7,21 @@
 {{/each}} --}}
 
 {{#each divelogs}}
+<div>
+Dive Number: {{this.diveNb}}
 <h3>{{this.divesite.name}}</h3>
+Date: {{this.date}}
+Max Dive Depth:
+Weights:
+Suit Thickness:
+Air Info:
+Air In:
+Air Out:
+Dive Time:
+
+
+<a href="/dive/{{this._id}}/editdive">Edit a Dive</a>
+</div>
 {{/each}}
 
 
