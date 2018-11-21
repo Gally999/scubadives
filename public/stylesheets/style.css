@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 header, body, footer {
-  font-family: 'Montserrat'; }
+  font-family: 'Montserrat';
+  background-color: #f9f3ec;
+  color: #020100; }
 
-h1, h2, h3 {
-  padding: 0 25px; }
+h1 {
+  text-align: center;
+  font-size: 400%; }
 
 .error-message {
   border: 3px solid;
@@ -20,7 +23,7 @@ h1, h2, h3 {
 /* Navbar container */
 nav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #020100;
   font-family: Arial;
   display: flex;
   justify-content: space-between; }
@@ -33,6 +36,9 @@ nav a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none; }
+
+nav a:hover {
+  background-color: #006582; }
 
 /* The dropdown container */
 .dropdown {
@@ -54,7 +60,7 @@ nav a {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red; }
+  background-color: #006582; }
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
@@ -62,7 +68,7 @@ nav a {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px #020100;
   z-index: 1; }
 
 /* Links inside the dropdown */
@@ -76,7 +82,7 @@ nav a {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd; }
+  background-color: #75b2b8; }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -184,6 +190,12 @@ label {
   to {
     opacity: 1; } }
 
+.title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 25%; }
+
 .courses {
   display: flex;
   padding: 0 25px; }
@@ -207,6 +219,11 @@ label {
   justify-content: space-evenly;
   align-items: center; }
 
+.aboutus {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto; }
+
 .divelogform {
   padding: 5%; }
 
@@ -221,10 +238,37 @@ label {
 .diveloglink {
   padding: 0 25px; }
 
+.diveprofile {
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto; }
+
 .divelogs-profile-page {
   display: flex;
   margin: 0 auto;
   width: 90%; }
+
+h2 {
+  text-align: center; }
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; }
+
+button {
+  background-color: #75b2b8;
+  color: #f9f3ec;
+  border: 1px solid #006582;
+  border-radius: 15px;
+  width: 150px;
+  height: 50px;
+  font-size: 18px; }
+
+button a {
+  text-decoration: none;
+  color: #f9f3ec; }
 
 footer {
   text-align: center; }

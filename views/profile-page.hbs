@@ -1,31 +1,34 @@
-<h2>My Profile</h2>
 {{> flash_messages}}
+<h2>My Profile</h2>
 
-<div>
-<p>First Name : {{currentUser.firstName}}</p>
-<p>Last Name : {{currentUser.lastName}}</p>
-<p>Email : {{currentUser.email}}</p>
-<p>Certification Organization : {{currentUser.organization}}</p>
-<p>Certification number : {{currentUser.certNb}}</p>
-<p>Main certification : {{currentUser.mainCert}}</p>
-{{#if currentUser.secCert}}
-<p> Other certifications: {{currentUser.secCert}}</p>
-{{/if}}
 
-{{#if currentUser.speciality}}
-  <p>Specialities:</p>
-  {{#each currentUser.speciality}}
+<div class="profile">
+  <div>
+    <p>First Name : {{currentUser.firstName}}</p>
+    <p>Last Name : {{currentUser.lastName}}</p>
+    <p>Email : {{currentUser.email}}</p>
+    <p>Certification Organization : {{currentUser.organization}}</p>
+    <p>Certification number : {{currentUser.certNb}}</p>
+    <p>Main certification : {{currentUser.mainCert}}</p>
+    {{#if currentUser.secCert}}
+    <p> Other certifications: {{currentUser.secCert}}</p>
+    {{/if}}
+
+    {{#if currentUser.speciality}}
+    <p>Specialities:</p>
+    {{#each currentUser.speciality}}
     <li>{{this}}</li>
-  {{/each}}
-{{/if}}
+    {{/each}}
+    {{/if}}
 
-<button><a href="/edit-profile">Edit my profile</a></button>
+    <button><a href="/edit-profile">Edit my profile</a></button>
+  </div>
 </div>
 
-
+<h2>My Dives</h2>
 <div class="divelogs-profile-page">
   {{#each divelogArray}}
-    <div>
+  <div>
     <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
     <p>Date: {{this.shortDate}}</p>
     <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
@@ -41,6 +44,6 @@
     <p>You rated this dive: {{this.rating}}/5</p>
     <p>Your review of this divesite: {{this.divesiteReviews}}</p>
     <button><a href="/dive/{{this._id}}/editdive">Update this dive!</a></button>
-    </div>
+  </div>
   {{/each}}
 </div>

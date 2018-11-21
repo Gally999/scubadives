@@ -1,5 +1,7 @@
+<div class="diveprofile">
 <h2>Dive Logs List</h2>
-<a class="diveloglink" href="/dive/add-dive">Add a Dive</a>
+<button><a class="diveloglink" href="/dive/add-dive">Add Dive</a></button>
+</div>
 {{> flash_messages}}
 
 <div class="divelog">
@@ -25,10 +27,10 @@
       </p>
     </div>
     <div>
-      <a href="/dive/{{this._id}}/editdive">Edit This Dive</a>
+      <button><a href="/dive/{{this._id}}/editdive">Edit This Dive</a></button>
     </div>
     <div>
-      <a href="/dive/{{this._id}}/delete">Delete This dive</a>
+      <button><a href="/dive/{{this._id}}/delete">Delete This Dive</a></button>
     </div>
   </div>
   {{/each}}
