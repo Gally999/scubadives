@@ -1,0 +1,18 @@
+<h2>Here are the list of DiveSite</h2>
+
+<div class="divelog">
+  {{#each alldivesite}}
+  <div class="onedive">
+    <div>
+      <h4>{{this.name}}</h4>
+      <h5>{{this.city}}, {{this.country}}</h5>
+      <p>{{this.rating}}/5<br>
+      {{#each reviews}}
+      {{this.user.firstName}}{{this.user.lastName}}<br>
+      {{this.comments}}<br>
+      {{/each}}
+      </p>
+    </div>
+  </div>
+  {{/each}}
+  </div>

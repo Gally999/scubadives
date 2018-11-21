@@ -57,7 +57,8 @@ router.post('/dive/:diveId/editprocess', (req,res, next) =>{
       {$set: {divesite, diveNb, date, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews}},
       { runValidators: true }    )
       .then(diveDoc =>{
-        res.redirect('/dive/:diveId');
+        res.locals.oneEdit = diveDoc;
+        res.redirect('/divelog');
       })
       .catch(err=>next(err));
     })
