@@ -14,9 +14,6 @@ header, body, footer {
   color: #020100;
   line-height: 2; }
 
-body {
-  height: 100vh; }
-
 h1 {
   text-align: center;
   font-size: 400%; }
@@ -52,7 +49,6 @@ h1 {
 nav {
   overflow: hidden;
   background-color: #020100;
-  font-family: Arial;
   display: flex;
   justify-content: space-between; }
 
@@ -333,8 +329,11 @@ button a {
   .google-btn:active {
     background: #1669F2; }
 
-.laypoutframe {
-  height: 100vh; }
+.loginpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 footer {
   text-align: center; }

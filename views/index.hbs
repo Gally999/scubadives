@@ -1,6 +1,6 @@
 {{> flash_messages}}
 <div class="title">
-    <img src="/images/snorkel.png" alt="snorkel" width="10%"/>
+    <img src="/images/snorkel.png" alt="snorkel" width="10%" />
     <h1>{{title}}</h1>
     <img src="/images/snorkel.png" alt="snorkel" width="10%" />
 </div>
@@ -9,7 +9,7 @@
 <div class="homepage">
     <div class="section1">
         <div>
-            <h3>Services</h3>
+            <h3>What are we?</h3>
             <p>We provide services to log your dives online.<br>
                 Share your experiences with everyone and choose where to dive next</p>
         </div>
@@ -55,6 +55,27 @@
         </div>
     </div>
     {{#if currentUser}}
+    <div>
+        <h3>Latest Dive:</h3>
+        <div class="divelogs-profile-page">
+            {{divelogArray}}
+            <div>
+                <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
+                <p>Date: {{this.shortDate}}</p>
+                <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
+                <p>Dive Time: {{this.diveTime}}</p>
+                <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
+                <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
+                <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
+                <p>What you saw: {{this.seen}}</p>
+                {{#if this.comments}}
+                <p>Personal Comment: {{this.comments}}</p>
+                {{/if}}
+                <p>You rated this dive: {{this.rating}}/5</p>
+                <p>Your review of this divesite: {{this.divesiteReviews}}</p>
+            </div>
+        </div>
+    </div>
 
     {{else}}
     <div>

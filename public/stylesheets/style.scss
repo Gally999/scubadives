@@ -61,7 +61,6 @@ h1{
 nav {
   overflow: hidden;
   background-color: #020100;
-  font-family: Arial;
   display: flex;
   justify-content: space-between;
 }
@@ -394,6 +393,14 @@ button a {
   &:active {
     background: #1669F2;
   }
+}
+
+//login page
+.loginpage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 //footer
