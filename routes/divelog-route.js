@@ -6,7 +6,7 @@ const router = express.Router();
 // limit adding room only to Log in Users
 router.get('/dive/add-dive', (req, res, next) =>{
   if(!req.user){
-    req.flash('error', 'You have to be Logged In to add dive');
+    req.flash('error', 'You have to be logged-in to add a dive');
     res.redirect('/login');
 }
 else{
@@ -23,7 +23,7 @@ router.post('/adddive', (req,res,next) =>{
     const divesite = oneDive._id;
     Divelog.create({diveNb, date, divesite, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews, user})
     .then(diveDoc =>{
-      req.flash("success", "Dive Log created successfully");
+      req.flash("success", "Dive log created successfully");
       res.redirect('/divelog');
     })
     .catch(err => next(err));

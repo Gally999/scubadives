@@ -60,7 +60,6 @@ const divelogSchema = new Schema({
   }, 
   divesiteReviews: {
       type:String,
-      required:true,
       maxlength: 200,
     },
 },{

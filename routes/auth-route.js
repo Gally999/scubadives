@@ -20,7 +20,7 @@ router.post('/add-user', (req,res,next) =>{
     User.findOne({email: {$eq: email}})
     .then(userDoc =>{
         if (userDoc){
-            req.flash("error", "Email is already in the Database");
+            req.flash("error", "This email is already in the database, please login if you already have an account");
             res.redirect('/login');
             return;
         }
@@ -60,7 +60,7 @@ router.post("/login-process", (req, res, next) => {
             const { encryptedPassword } = userDoc;
             if(bcrypt.compareSync(originalPassword, encryptedPassword)) {
                 req.logIn(userDoc, () => {
-                    req.flash("success", "Congrats, you are logged-in!");
+                    req.flash("success", "Congrats, you are now logged-in!");
                     res.redirect("/");
                 });
             } else {
@@ -74,7 +74,7 @@ router.post("/login-process", (req, res, next) => {
 //Log out
 router.get('/logout', (req,res,next) =>{
     req.logOut();
-    req.flash("success", "Log Out successfully!!")
+    req.flash("success", "You have logged-out successfully!")
     res.redirect('/');
 });
 
@@ -92,7 +92,7 @@ router.get("/google/login",
     router.get("/google/user-info", 
         passport.authenticate("google", {
             successRedirect: "/",
-            successFlash: "Google Login successful!", 
+            successFlash: "Google login successful!", 
             failureRedirect: "/login", 
             failureFlash: "Google login failed!",
         }));
