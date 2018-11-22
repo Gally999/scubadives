@@ -25,9 +25,13 @@ router.get("/dive/add-dive", (req, res, next) => {
 
 // adding divelog and assign it to user and divesite
 router.post("/adddive", (req, res, next) => {
-  //Finding the Divelog and update the Number if they have the same number
+  //Finding the Divelog Number from the form.
   const diveNb = req.body.diveNb
   Divelog.findOne({ diveNb: { $eq: diveNb } })
+  //if they have the same number from the database they will "push +1" from the database
+  //eg FORM divenumber 3 (current)----> (previous) database 3
+  // (previous)database 3 will change to database 4
+  //form divenumber 3 will continue to be 3.
     .then(dive => {
         if (dive) {
           return Divelog.updateMany(
@@ -38,11 +42,13 @@ router.post("/adddive", (req, res, next) => {
         };
         return;
       })
+  //.then will be from form
   // Taking the divesite database and connecting the name to divelog
-  .then(manyDive=> {
+  .then(()=> {
     const {divesite,} = req.body;
     return Divesite.findOne({ name: { $eq: divesite } })
   })
+  //after the connection is being made. we are going to create(add) the dive
     .then(oneDivesite => {
       const {
         diveNb,
