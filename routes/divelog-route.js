@@ -23,10 +23,22 @@ router.post('/adddive', (req,res,next) =>{
     const divesite = oneDive._id;
     Divelog.create({diveNb, date, divesite, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews, user})
     .then(diveDoc =>{
+        console.log(divesite);
+        console.log(user);
+        console.log(divesiteReviews);
+        
       req.flash("success", "Dive log created successfully");
       res.redirect('/divelog');
     })
     .catch(err => next(err));
+
+    Divesite.findByIdAndUpdate(
+      divesite, 
+      { $push: { reviews: { user: user , comments: divesiteReviews } } },
+      { runValidators: true }
+    )
+      .then(divesiteCommentDoc => {})
+      .catch(err => next(err));
   })
   .catch(err => next(err));
 });
