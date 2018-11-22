@@ -55,27 +55,26 @@
         </div>
     </div>
     {{#if currentUser}}
-    {{!-- <div>
+    <div>
         <h3>Latest Dive:</h3>
         <div class="divelogs-profile-page">
-            {{divelogArray}}
             <div>
-                <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
-                <p>Date: {{this.shortDate}}</p>
-                <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
-                <p>Dive Time: {{this.diveTime}}</p>
-                <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
-                <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
-                <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
-                <p>What you saw: {{this.seen}}</p>
-                {{#if this.comments}}
-                <p>Personal Comment: {{this.comments}}</p>
+                <p>Dive# {{diveloglatest.0.diveNb}} - {{diveloglatest.0.divesite.name}}</p>
+                <p>Date: {{diveloglatest.0.shortDate}}</p>
+                <p>Entry Time: {{diveloglatest.0.entryTime}} / Exit Time: {{diveloglatest.exitTime}}</p>
+                <p>Dive Time: {{diveloglatest.0.diveTime}}</p>
+                <p>Maximum Depth: {{diveloglatest.0.depth}}{{diveloglatest.0.depthInfo}}</p>
+                <p>Air In: {{diveloglatest.0.airInNb}} {{diveloglatest.0.airInfo}} / Air Out: {{diveloglatest.0.airOut}} {{diveloglatest.0.airInfo}}</p>
+                <p>Suit Info: {{diveloglatest.0.suitThickness}} - Weights on: {{diveloglatest.0.weightNb}} {{diveloglatest.0.weightInfo}}</p>
+                <p>What you saw: {{diveloglatest.0.seen}}</p>
+                {{#if diveloglatest.0.comments}}
+                <p>Personal Comment: {{diveloglatest.0.comments}}</p>
                 {{/if}}
-                <p>You rated this dive: {{this.rating}}/5</p>
-                <p>Your review of this divesite: {{this.divesiteReviews}}</p>
+                <p>You rated this dive: {{diveloglatest.0.rating}}/5</p>
+                <p>Your review of this divesite: {{diveloglatest.0.divesiteReviews}}</p>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{else}}
     <div>

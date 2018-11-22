@@ -10,11 +10,18 @@ router.get("/", (req, res, next) => {
   console.log(req);
   if (req.user) {
     console.log("logged in", req.user);
-  } else {
+    Divelog.find({ user: { $eq: req.user._id } })
+    .populate("divesite")
+    .sort({diveNb: -1})
+    .limit(1)
+    .then(divelogResults => {
+      res.locals.diveloglatest = divelogResults;
+      res.render("index");
+    })
+    .catch(err => next(err));
+  }else{
     console.log("not logged in", req.user);
   }
-  //res.locals.currentUser = req.user;
-  res.render("index");
 });
 
 // Access profile page
