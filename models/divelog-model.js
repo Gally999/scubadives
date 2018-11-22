@@ -6,6 +6,7 @@ const moment = require("moment");
 const divelogSchema = new Schema({
   diveNb: {
       type:Number,
+      default: 0,
       required: true,
   },
   divesite: { 
