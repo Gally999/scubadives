@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+* {
+  padding: 0;
+  margin: 0; }
+
+html {
+  height: 100%;
+  box-sizing: border-box; }
+
 header, body, footer {
   font-family: 'Montserrat';
   background-color: #f9f3ec;
@@ -9,16 +17,31 @@ h1 {
   font-size: 400%; }
 
 .error-message {
-  border: 3px solid;
-  border-radius: 3px;
-  color: tomato;
-  padding: 10px; }
+  opacity: 0;
+  border: 3px solid tomato;
+  border-radius: 5px;
+  color: #020100;
+  padding: 10px;
+  width: 400px;
+  margin: 0 auto;
+  animation: 5s flash-messages-fadeout; }
 
 .success-message {
-  border: 3px solid;
-  border-radius: 3px;
-  color: chartreuse;
-  padding: 10px; }
+  opacity: 0;
+  border: 1px solid #00d1b2;
+  border-radius: 5px;
+  color: #020100;
+  background-color: #f5fffd;
+  padding: 10px;
+  width: 400px;
+  margin: 0 auto;
+  animation: 5s flash-messages-fadeout; }
+
+@keyframes flash-messages-fadeout {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 /* Navbar container */
 nav {
@@ -271,6 +294,11 @@ button a {
   color: #f9f3ec; }
 
 footer {
-  text-align: center; }
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -130,7 +130,7 @@ router.get("/about-us", (req, res, next) => {
 //Dive Log page
 router.get("/divelog", (req, res, next) => {
   if (!req.user) {
-    req.flash("error", "You have to be logged-in to visit the DIVE LOGS page!");
+    req.flash("error", "You have to be logged-in to visit the Dive Logs page!");
     res.redirect("/login");
   } else {
     Divelog.find({user : {$eq: req.user._id}})
