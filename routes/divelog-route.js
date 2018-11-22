@@ -4,7 +4,6 @@ const Divesite = require("../models/divesite-model");
 const router = express.Router();
 
 // limit adding room only to Log in Users
-<<<<<<< HEAD
 router.get("/dive/add-dive", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You have to be Logged In to add dive");
@@ -19,16 +18,6 @@ router.get("/dive/add-dive", (req, res, next) => {
       })
       .catch(err => next(err));
   }
-=======
-router.get('/dive/add-dive', (req, res, next) =>{
-  if(!req.user){
-    req.flash('error', 'You have to be logged-in to add a dive');
-    res.redirect('/login');
-}
-else{
-  res.render('divelog-route/add-divelog.hbs')
-}
->>>>>>> b19bee8e0df5debd4bc22cf062513bb76309ed93
 });
 
 // adding divelog and assign it to user and divesite
@@ -54,11 +43,23 @@ router.post("/adddive", (req, res, next) => {
     divesiteReviews
   } = req.body;
   const user = req.user._id;
-<<<<<<< HEAD
   Divesite.findOne({ name: { $eq: divesite } })
     .then(oneDive => {
       const divesite = oneDive._id;
-      Divelog.create({
+      return Divelog.findOne({ diveNb: { $eq: diveNb } })
+    })
+    .then(dive => {
+        if (dive) {
+          return Divelog.updateMany(
+            { diveNb: { $gte: diveNb } },
+            { $inc: { diveNb: +1 } },
+            { runValidators: true, new: true }
+          );
+        };
+        return;
+      })
+    .then(()=> {
+      return Divelog.create({
         diveNb,
         date,
         divesite,
@@ -78,22 +79,11 @@ router.post("/adddive", (req, res, next) => {
         rating,
         divesiteReviews,
         user
-      })
+      })})
         .then(diveDoc => {
           req.flash("success", "Dive Log created successfully");
           res.redirect("/divelog");
         })
-        .catch(err => next(err));
-=======
-  Divesite.findOne({name: {$eq: divesite}})
-  .then(oneDive =>{
-    const divesite = oneDive._id;
-    Divelog.create({diveNb, date, divesite, depth, depthInfo, weightNb, weightInfo, suitThickness, airInfo, airInNb, airOut, diveTime, entryTime, exitTime, seen, comments, rating, divesiteReviews, user})
-    .then(diveDoc =>{
-      req.flash("success", "Dive log created successfully");
-      res.redirect('/divelog');
->>>>>>> b19bee8e0df5debd4bc22cf062513bb76309ed93
-    })
     .catch(err => next(err));
 });
 
@@ -177,6 +167,18 @@ router.get("/dive/:diveId/delete", (req, res, next) => {
   const { diveId } = req.params;
   Divelog.findByIdAndRemove(diveId)
     .then(diveresult => {
+      return Divelog.updateMany(
+        {
+          $and: [
+            { user: { $eq: req.user._id } },
+            { diveNb: { $gt: diveresult.diveNb } }
+          ]
+        },
+        { $inc: { diveNb: -1 } },
+        { runValidators: true, new: true }
+      );
+    })
+    .then(userdives => {
       res.redirect("/divelog");
     })
     .catch(err => next(err));

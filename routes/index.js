@@ -134,6 +134,7 @@ router.get("/divelog", (req, res, next) => {
     res.redirect("/login");
   } else {
     Divelog.find({user : {$eq: req.user._id}})
+    .sort({diveNb: 1})
     .populate("divesite")
     .then(userDives => {
         res.locals.divelogs = userDives;

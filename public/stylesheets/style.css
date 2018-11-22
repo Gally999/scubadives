@@ -251,12 +251,15 @@ label {
   padding: 5%; }
 
 .divelog {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .onedive {
   display: flex;
   flex-direction: column;
-  padding: 3%; }
+  width: 25%;
+  padding: 3%;
+  word-wrap: break-word; }
 
 .diveloglink {
   padding: 0 25px; }

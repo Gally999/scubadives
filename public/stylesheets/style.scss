@@ -298,12 +298,15 @@ label {
 //Dive Logs display
 .divelog{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .onedive{
   display: flex;
   flex-direction: column;
+  width: 25%;
   padding: 3%;
+  word-wrap: break-word;
 }
 .diveloglink{
   padding: 0 25px;
