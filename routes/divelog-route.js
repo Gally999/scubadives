@@ -6,7 +6,7 @@ const router = express.Router();
 // limit adding room only to Log in Users
 router.get("/dive/add-dive", (req, res, next) => {
   if (!req.user) {
-    req.flash("error", "You have to be Logged In to add dive");
+    req.flash("error", "You have to be logged-in to add a dive");
     res.redirect("/login");
   } else {
     Divelog.findOne({ user: { $eq: req.user._id } })
@@ -79,12 +79,18 @@ router.post("/adddive", (req, res, next) => {
         rating,
         divesiteReviews,
         user
-      })})
+      })
         .then(diveDoc => {
           req.flash("success", "Dive Log created successfully");
           res.redirect("/divelog");
         })
-    .catch(err => next(err));
+        .catch(err => next(err));
+      
+    Divesite.findByIdAndUpdate(divesite,{ $push: { reviews: { user: user, comments: divesiteReviews } } }, { runValidators: true })
+      .then(divesiteCommentDoc => {})
+      .catch(err => next(err));
+    })
+  .catch(err => next(err));
 });
 
 //Update DiveLogs
