@@ -137,7 +137,7 @@ label {
   height: 20%; }
 
 /* Hide the images by default */
-.mySlides {
+.disabled {
   display: none; }
 
 /* Next & previous buttons */
