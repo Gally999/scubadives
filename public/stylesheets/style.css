@@ -11,7 +11,8 @@ html {
 header, body, footer {
   font-family: 'Montserrat';
   background-color: #f9f3ec;
-  color: #020100; }
+  color: #020100;
+  line-height: 2; }
 
 body {
   width: 100%;

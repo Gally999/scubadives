@@ -94,7 +94,7 @@ router.post("/process-edit", (req, res, next) => {
 // If user wants to delete a speciality directly in the edit page
 router.post("/speciality-delete/:speId", (req, res, next) => {
   const { speId } = req.params;
-  let newSpeArray;
+  
   User.findByIdAndUpdate(
     req.user._id,
     { $pull: { speciality: speId } },
@@ -147,11 +147,12 @@ router.get("/divelog", (req, res, next) => {
 //Dive Site page
 router.get("/divesite", (req, res, next) =>{
   Divesite.find()
-    .populate("user")
+    .populate("reviews.user")
     .then(diveSite => {
-      console.log(diveSite)
+      console.log(diveSite[0].reviews[0].user);
         res.locals.alldivesite = diveSite;
-        res.render("../views/divesite-route/divesite-list.hbs");
+        //res.send(diveSite)
+       res.render("../views/divesite-route/divesite-list.hbs");
       })
       .catch(err => next(err));
 })
