@@ -25,32 +25,9 @@ router.get("/dive/add-dive", (req, res, next) => {
 
 // adding divelog and assign it to user and divesite
 router.post("/adddive", (req, res, next) => {
-  const {
-    divesite,
-    diveNb,
-    date,
-    depth,
-    depthInfo,
-    weightNb,
-    weightInfo,
-    suitThickness,
-    airInfo,
-    airInNb,
-    airOut,
-    diveTime,
-    entryTime,
-    exitTime,
-    seen,
-    comments,
-    rating,
-    divesiteReviews
-  } = req.body;
-  const user = req.user._id;
-  Divesite.findOne({ name: { $eq: divesite } })
-    .then(oneDive => {
-      const divesite = oneDive._id;
-      return Divelog.findOne({ diveNb: { $eq: diveNb } })
-    })
+  //Finding the Divelog and update the Number if they have the same number
+  const diveNb = req.body.diveNb
+  Divelog.findOne({ diveNb: { $eq: diveNb } })
     .then(dive => {
         if (dive) {
           return Divelog.updateMany(
@@ -61,7 +38,33 @@ router.post("/adddive", (req, res, next) => {
         };
         return;
       })
-    .then(()=> {
+  // Taking the divesite database and connecting the name to divelog
+  .then(manyDive=> {
+    const {divesite,} = req.body;
+    return Divesite.findOne({ name: { $eq: divesite } })
+  })
+    .then(oneDivesite => {
+      const {
+        diveNb,
+        date,
+        depth,
+        depthInfo,
+        weightNb,
+        weightInfo,
+        suitThickness,
+        airInfo,
+        airInNb,
+        airOut,
+        diveTime,
+        entryTime,
+        exitTime,
+        seen,
+        comments,
+        rating,
+        divesiteReviews
+      } = req.body;
+      const user = req.user._id;
+      const divesite = oneDivesite._id;
       return Divelog.create({
         diveNb,
         date,
@@ -83,17 +86,15 @@ router.post("/adddive", (req, res, next) => {
         divesiteReviews,
         user
       })
-        .then(diveDoc => {
-          req.flash("success", "Dive Log created successfully");
-          res.redirect("/divelog");
-        })
-        .catch(err => next(err));
-
-    Divesite.findByIdAndUpdate(divesite,{ $push: { reviews: { user: user, comments: divesiteReviews } } }, { runValidators: true })
-      .then(divesiteCommentDoc => {})
-      .catch(err => next(err));
     })
-  .catch(err => next(err));
+    .then((diveLogDoc)=>{
+      return Divesite.findByIdAndUpdate(diveLogDoc.divesite,{ $push: { reviews: { user: diveLogDoc.user, comments: diveLogDoc.divesiteReviews } } }, { runValidators: true })
+    })
+      .then(divesiteCommentDoc => {
+        req.flash("success", "Dive Log created successfully");
+        res.redirect("/divelog");
+      })
+        .catch(err => next(err));
 });
 
 //Update DiveLogs
