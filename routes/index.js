@@ -149,7 +149,6 @@ router.get("/divesite", (req, res, next) =>{
   Divesite.find()
     .populate("reviews.user")
     .then(diveSite => {
-      console.log(diveSite[0].reviews[0].user);
         res.locals.alldivesite = diveSite;
         //res.send(diveSite)
        res.render("../views/divesite-route/divesite-list.hbs");
