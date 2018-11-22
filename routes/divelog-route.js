@@ -12,6 +12,9 @@ router.get("/dive/add-dive", (req, res, next) => {
     Divelog.findOne({ user: { $eq: req.user._id } })
       .sort({ diveNb: -1 })
       .then(diveRef => {
+        if (!diveRef){
+          diveRef = 0;
+        }
         let tempNum = Number(diveRef.diveNb) + 1;
         res.locals.diveNumber = tempNum;
         res.render("divelog-route/add-divelog.hbs");
@@ -85,7 +88,7 @@ router.post("/adddive", (req, res, next) => {
           res.redirect("/divelog");
         })
         .catch(err => next(err));
-      
+
     Divesite.findByIdAndUpdate(divesite,{ $push: { reviews: { user: user, comments: divesiteReviews } } }, { runValidators: true })
       .then(divesiteCommentDoc => {})
       .catch(err => next(err));
