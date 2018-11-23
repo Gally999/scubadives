@@ -13,10 +13,12 @@ html {
 
 header, body, footer {
   font-family: 'Montserrat';
-  background-color: #f9f3ec;
+  background-color: #fbfaf8;
   color: #020100;
   line-height: 2;
+  margin-bottom: 20px;
 }
+
 
 h1{
   text-align: center;
@@ -135,12 +137,14 @@ nav a:hover{
 //Homepage
 label {
   display: block;
+ 
 }
 
 .homepage {
   display: flex;
   justify-content: space-between;
-  padding: 0 100px;
+  width: 65%;
+  margin: 0 auto;
 }
 
 .section1{
@@ -256,13 +260,24 @@ label {
 }
 
 //Courses
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.container-divelogs {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .courses{
   display: flex;
-  padding: 0 25px;
+  justify-content: space-between;
 }
 
 .course-info{
-  width: 35%;
+  width: 45%;
 }
 
 .course-info1 img{
@@ -283,6 +298,12 @@ label {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width: 1000px;
+  margin: 0 auto; 
+}
+
+.creator-each {
+  width: 500px;
 }
 
 .aboutus{
@@ -299,6 +320,7 @@ label {
 //Dive Logs display
 .divelog{
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -307,7 +329,7 @@ label {
   flex-direction: column;
   justify-content: space-around;
   margin: 50px;
-  width: 30%;
+  width: 23%;
   border: 5px solid #fdaf00;
   border-radius: 10px;
   padding: 15px;
@@ -326,6 +348,7 @@ label {
 // Profile page
 .divelogs-profile-page {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 25px;
 }
@@ -403,13 +426,14 @@ h2{
 
 button{
   background-color: #75b2b8;
-  color: #f9f3ec;
+  color: white;
   border: 1px solid #006582;
   border-radius: 15px;
-  width: 250px;
-  height: 50px;
+  width: 170px;
+  height: 45px;
   font-size: 18px;
-  margin: 20px;
+  margin: 5px auto;
+  display: inline;
 }
 
 button a {
@@ -486,4 +510,11 @@ button a {
 //footer
 footer{
   text-align: center;
+  background-color: #020100;
+  color: white;
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
 }
