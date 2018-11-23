@@ -351,6 +351,7 @@ label {
   height: 20px;
   font-size: 15px;
   outline: none;
+  display: inline;
 }
 
 .editprofile{
@@ -367,6 +368,7 @@ label {
 
 .spspeciality li{
   display: flex;
+  justify-content: space-between;
 }
 //Dive site
 

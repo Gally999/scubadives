@@ -85,8 +85,9 @@
     {{#each currentUser.speciality}}
     <li>{{this}}
       <form action="/speciality-delete/{{this}}" method="post">
-        <button class="x">x</button> </li>
+        <button class="x">x</button>
     </form>
+    </li>
     {{/each}}
   </div>
   {{/if}}
