@@ -21,20 +21,20 @@
                     <img src="/images/img2.jpg">
                 </div>
 
-                <div class="mySlides fade">
+                <div class="mySlides fade disabled">
                     <div class="numbertext">2 / 5</div>
                     <img src="/images/img2.jpg">
                 </div>
 
-                <div class="mySlides fade">
+                <div class="mySlides fade disabled">
                     <div class="numbertext">3 / 5</div>
                     <img src="/images/img3.JPG">
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade disabled">
                     <div class="numbertext">4 / 5</div>
                     <img src="/images/img4.JPG">
                 </div>
-                <div class="mySlides fade">
+                <div class="mySlides fade disabled">
                     <div class="numbertext">5 / 5</div>
                     <img src="/images/img5.JPG">
                 </div>
@@ -46,20 +46,24 @@
             <br>
 
             <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                {{!-- <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
                 <span class="dot" onclick="currentSlide(4)"></span>
-                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span> --}}
             </div>
         </div>
     </div>
     {{#if currentUser}}
-    <div>
+    <div class="indexdive">
         <h3>Latest Dive:</h3>
-        <div class="divelogs-profile-page">
-            <div>
-                <p>Dive# {{diveloglatest.0.diveNb}} - {{diveloglatest.0.divesite.name}}</p>
+            <div class="indexdivepart1">
+                <h3>Dive# {{diveloglatest.0.diveNb}} - {{diveloglatest.0.divesite.name}}</h3>
                 <p>Date: {{diveloglatest.0.shortDate}}</p>
                 <p>Entry Time: {{diveloglatest.0.entryTime}} / Exit Time: {{diveloglatest.exitTime}}</p>
                 <p>Dive Time: {{diveloglatest.0.diveTime}}</p>
@@ -73,7 +77,6 @@
                 <p>You rated this dive: {{diveloglatest.0.rating}}/5</p>
                 <p>Your review of this divesite: {{diveloglatest.0.divesiteReviews}}</p>
             </div>
-        </div>
     </div>
 
     {{else}}

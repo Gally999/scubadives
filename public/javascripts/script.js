@@ -15,6 +15,7 @@ document.addEventListener(
     }
 
     function showSlides(n) {
+      console.log(n);
       var i;
       var slides = document.getElementsByClassName("mySlides");
       var dots = document.getElementsByClassName("dot");
@@ -32,11 +33,12 @@ document.addEventListener(
       }
       slides[slideIndex - 1].style.display = "block";
       dots[slideIndex - 1].className += " active";
+
+      // currentSlide();
+      // plusSlides();
     }
-    // currentSlide();
-    // plusSlides();
+
 
   },
   false
 );
-

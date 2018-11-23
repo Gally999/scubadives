@@ -7,9 +7,8 @@ const router = express.Router();
 /* GET home page */
 router.get("/", (req, res, next) => {
   //req.user comes from passport-setup.
-  console.log(req);
+  // console.log(req);
   if (req.user) {
-    console.log("logged in", req.user);
     Divelog.find({ user: { $eq: req.user._id } })
     .populate("divesite")
     .sort({diveNb: -1})
@@ -20,7 +19,7 @@ router.get("/", (req, res, next) => {
     })
     .catch(err => next(err));
   }else{
-    console.log("not logged in", req.user);
+    res.render("index");
   }
 });
 
