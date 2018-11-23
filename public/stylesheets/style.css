@@ -296,7 +296,8 @@ label {
   border: 1px solid #006582;
   width: 50px;
   height: 20px;
-  font-size: 15px; }
+  font-size: 15px;
+  outline: none; }
 
 .editprofile {
   display: flex;
