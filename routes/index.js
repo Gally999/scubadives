@@ -153,6 +153,7 @@ router.get("/divelog", (req, res, next) => {
 //Dive Site page
 router.get("/divesite", (req, res, next) =>{
   Divesite.find()
+    .sort({ name: 1 })
     .populate("reviews.user")
     .then(diveSite => {
         res.locals.alldivesite = diveSite;
