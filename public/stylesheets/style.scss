@@ -305,8 +305,12 @@ label {
 .onedive{
   display: flex;
   flex-direction: column;
-  width: 25%;
-  padding: 3%;
+  justify-content: space-around;
+  margin: 50px;
+  width: 20%;
+  border: 5px solid #fdaf00;
+  border-radius: 10px;
+  padding: 15px;
   word-wrap: break-word;
 }
 .diveloglink{
@@ -335,6 +339,7 @@ label {
   border: 5px solid #fdaf00;
   border-radius: 10px;
   padding: 15px;
+  word-wrap: break-word;
 }
 
 //edit profile
