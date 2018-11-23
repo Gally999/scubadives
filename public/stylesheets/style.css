@@ -307,8 +307,8 @@ label {
   word-wrap: break-word; }
 
 .x {
-  background-color: #75b2b8;
-  color: #f9f3ec;
+  background-color: #006582;
+  color: white;
   border: 1px solid #006582;
   width: 20px;
   height: 20px;
@@ -367,7 +367,7 @@ h2 {
   margin: 30px auto; }
 
 button {
-  background-color: #75b2b8;
+  background-color: #006582;
   color: white;
   border: 1px solid #006582;
   border-radius: 15px;
