@@ -4,18 +4,18 @@
 
 <div class="profile">
   <div>
-    <p>First Name : {{currentUser.firstName}}</p>
-    <p>Last Name : {{currentUser.lastName}}</p>
-    <p>Email : {{currentUser.email}}</p>
-    <p>Certification Organization : {{currentUser.organization}}</p>
-    <p>Certification number : {{currentUser.certNb}}</p>
-    <p>Main certification : {{currentUser.mainCert}}</p>
+    <p><b>First Name : </b>{{currentUser.firstName}}<br>
+    <b>Last Name : </b>{{currentUser.lastName}}<br>
+    <b>Email : </b>{{currentUser.email}}<br>
+    <b>Certification Organization : </b>{{currentUser.organization}}<br>
+    <b>Certification number : </b>{{currentUser.certNb}}<br>
+    <b>Main certification : </b>{{currentUser.mainCert}}<br>
     {{#if currentUser.secCert}}
-    <p> Other certifications: {{currentUser.secCert}}</p>
+     <b>Other certifications: </b>{{currentUser.secCert}}<br>
     {{/if}}
 
     {{#if currentUser.speciality}}
-    <p>Specialities:</p>
+    <b>Specialities:</b></p>
     {{#each currentUser.speciality}}
     <li>{{this}}</li>
     {{/each}}
