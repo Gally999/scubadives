@@ -8,7 +8,7 @@
       <h5>{{this.city}}, {{this.country}}</h5>
       <p>{{this.rating}}/5<br>
       {{#each this.reviews}}
-      {{this.user.firstName}} {{this.user.lastName}}<br>
+      <b>{{this.user.firstName}} {{this.user.lastName}}</b> {{#if this.rating}}rated this divesite: {{this.rating}}/5 {{else}}said:{{/if}}<br>
       {{this.comments}}<br>
       {{/each}}
       </p>

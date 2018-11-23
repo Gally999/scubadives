@@ -26,6 +26,7 @@ const divesiteSchema = new Schema({
       ref: "User",
       required:true,
     },
+    rating: { type: Number },
     comments: {
       type:String,
       required:true,

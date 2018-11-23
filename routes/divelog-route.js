@@ -25,6 +25,7 @@ router.get("/dive/add-dive", (req, res, next) => {
 
 // adding divelog and assign it to user and divesite
 router.post("/adddive", (req, res, next) => {
+  let avg;
   //Finding the Divelog Number from the form.
   const diveNb = req.body.diveNb
   Divelog.findOne({ diveNb: { $eq: diveNb } })
@@ -45,7 +46,7 @@ router.post("/adddive", (req, res, next) => {
   //.then will be from form
   // Taking the divesite database and connecting the name to divelog
   .then(()=> {
-    const {divesite,} = req.body;
+    const {divesite} = req.body;
     return Divesite.findOne({ name: { $eq: divesite } })
   })
   //after the connection is being made. we are going to create(add) the dive
@@ -71,6 +72,15 @@ router.post("/adddive", (req, res, next) => {
       } = req.body;
       const user = req.user._id;
       const divesite = oneDivesite._id;
+
+      // Calculate the avg of rating
+      let tempAvg = 0;
+      oneDivesite.reviews.forEach(oneReview => {
+        tempAvg += oneReview.rating; 
+      });
+      tempAvg += Number(rating);
+      avg = tempAvg / (oneDivesite.reviews.length + 1);
+
       return Divelog.create({
         diveNb,
         date,
@@ -93,8 +103,9 @@ router.post("/adddive", (req, res, next) => {
         user
       })
     })
-    .then((diveLogDoc)=>{
-      return Divesite.findByIdAndUpdate(diveLogDoc.divesite,{ $push: { reviews: { user: diveLogDoc.user, comments: diveLogDoc.divesiteReviews } } }, { runValidators: true })
+  .then((divelogDoc)=>{
+  
+      return Divesite.findByIdAndUpdate(divelogDoc.divesite,{ $push: { reviews: { user: divelogDoc.user, rating: divelogDoc.rating, comments: divelogDoc.divesiteReviews } }, $set: { rating: avg } }, { runValidators: true })
     })
       .then(divesiteCommentDoc => {
         req.flash("success", "Dive Log created successfully");
