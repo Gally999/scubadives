@@ -4,18 +4,18 @@
 
 <div class="profile">
   <div>
-    <p>First Name : {{currentUser.firstName}}</p>
-    <p>Last Name : {{currentUser.lastName}}</p>
-    <p>Email : {{currentUser.email}}</p>
-    <p>Certification Organization : {{currentUser.organization}}</p>
-    <p>Certification number : {{currentUser.certNb}}</p>
-    <p>Main certification : {{currentUser.mainCert}}</p>
+    <p><b>First Name : </b>{{currentUser.firstName}}<br>
+    <b>Last Name : </b>{{currentUser.lastName}}<br>
+    <b>Email : </b>{{currentUser.email}}<br>
+    <b>Certification Organization : </b>{{currentUser.organization}}<br>
+    <b>Certification number : </b>{{currentUser.certNb}}<br>
+    <b>Main certification : </b>{{currentUser.mainCert}}<br>
     {{#if currentUser.secCert}}
-    <p> Other certifications: {{currentUser.secCert}}</p>
+     <b>Other certifications: </b>{{currentUser.secCert}}<br>
     {{/if}}
 
     {{#if currentUser.speciality}}
-    <p>Specialities:</p>
+    <b>Specialities:</b></p>
     {{#each currentUser.speciality}}
     <li>{{this}}</li>
     {{/each}}
@@ -30,20 +30,20 @@
 <div class="divelogs-profile-page">
   {{#each divelogArray}}
   <div class="profiledive">
-    <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
-    <p>Date: {{this.shortDate}}</p>
-    <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
-    <p>Dive Time: {{this.diveTime}}</p>
-    <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
-    <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
-    <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
-    <p>What you saw: {{this.seen}}</p>
+    <p><b>Dive#{{this.diveNb}} - {{this.divesite.name}}</b><br>
+    <b>{{this.shortDate}}</b><br>
+    <b> Time: </b>{{this.entryTime}} / <b>Exit Time: </b>{{this.exitTime}}
+    <b>Dive Time: </b>{{this.diveTime}}<br>
+    <b> Depth: </b>{{this.depth}}{{this.depthInfo}}<br>
+    <b>Air In: </b>{{this.airInNb}} {{this.airInfo}} / <b>Air Out: </b>{{this.airOut}} {{this.airInfo}}<br>
+    <b>Suit Info: </b>{{this.suitThickness}} - <b>Weights on: </b>{{this.weightNb}} {{this.weightInfo}}<br>
+    <b>What you saw: </b><br>{{this.seen}}<br>
     {{#if this.comments}}
-    <p>Personal Comment: {{this.comments}}</p>
+    <b>Personal Comment: </b><br>{{this.comments}}<br>
     {{/if}}
 
-    <p>You rated this dive: {{this.rating}}/5</p>
-    <p>Your review of this divesite: {{this.divesiteReviews}}</p>
+    <b>You rated this dive: </b>{{this.rating}}/5<br>
+    <b>Your review of this divesite: </b><br>{{this.divesiteReviews}}</p>
     <button><a href="/dive/{{this._id}}/editdive">Update this dive!</a></button>
   </div>
   {{/each}}
