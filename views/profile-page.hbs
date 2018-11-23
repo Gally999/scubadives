@@ -30,20 +30,20 @@
 <div class="divelogs-profile-page">
   {{#each divelogArray}}
   <div class="profiledive">
-    <p>Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
-    <p>Date: {{this.shortDate}}</p>
-    <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
-    <p>Dive Time: {{this.diveTime}}</p>
-    <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
-    <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
-    <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
-    <p>What you saw: {{this.seen}}</p>
+    <p class="counter"><b>Dive#{{this.diveNb}} - {{this.divesite.name}}</b></p><br>
+    <p><b>{{this.shortDate}}</b></p><br>
+    <p><b> Time: </b>{{this.entryTime}} / <b>Exit Time: </b>{{this.exitTime}}</p>
+    <p><b>Dive Time: </b>{{this.diveTime}}</p><br>
+    <p><b> Depth: </b>{{this.depth}}{{this.depthInfo}}</p><br>
+    <p><b>Air In: </b>{{this.airInNb}} {{this.airInfo}} / <b>Air Out: </b>{{this.airOut}} {{this.airInfo}}</p><br>
+    <p><b>Suit Info: </b>{{this.suitThickness}} - <b>Weights on: </b>{{this.weightNb}} {{this.weightInfo}}</p><br>
+    <p><b>What you saw: </b><br>{{this.seen}}</p><br>
     {{#if this.comments}}
-    <p>Personal Comment: {{this.comments}}</p>
+    <p><b>Personal Comment: </b><br>{{this.comments}}</p><br>
     {{/if}}
 
-    <p>You rated this dive: {{this.rating}}/5</p>
-    <p>Your review of this divesite: {{this.divesiteReviews}}</p>
+    <p><b>You rated this dive: </b>{{this.rating}}/5</p>
+    <p><b>Your review of this divesite: </b><br>{{this.divesiteReviews}}</p>
     <button><a href="/dive/{{this._id}}/editdive">Update this dive!</a></button>
   </div>
   {{/each}}
