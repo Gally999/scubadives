@@ -2,17 +2,20 @@
 
 <div class="divelog">
   {{#each alldivesite}}
-  <div class="onedive">
+  <div class="divesite">
     <div>
       <h4>{{this.name}}</h4>
       <h5>{{this.city}}, {{this.country}}</h5>
-      <p>{{this.rating}}/5<br>
-      {{#each this.reviews}}
-      {{this.user.firstName}} {{this.user.lastName}}<br>
-      {{this.comments}}<br>
-      {{/each}}
-      </p>
+      <p>{{this.rating}}/5<br></p>
+      <div class="divesite-reviews">
+        <p>
+          {{#each this.reviews}}
+          {{this.user.firstName}} {{this.user.lastName}}<br>
+          {{this.comments}}<br>
+          {{/each}}
+        </p>
+      </div>
     </div>
   </div>
   {{/each}}
-  </div>
+</div>
