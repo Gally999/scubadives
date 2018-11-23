@@ -8,23 +8,20 @@
   {{#each divelogs}}
   <div class="onedive">
     <div>
-      <p class="counter" >Dive#{{this.diveNb}}<br>
-        <h3>{{this.divesite.name}}</h3><br>
-        Date: {{this.shortDate}}<br>
-        Max Dive Depth: {{this.depth}}{{this.depthInfo}}<br>
-        Weights: {{this.weightNb}}{{thisweightInfo}}<br>
-        Suit Thickness: {{this.suitThickness}}<br>
-        Air Info: {{this.airInfo}}<br>
-        Air In: {{this.airInNb}}<br>
-        Air Out: {{this.airOut}}<br>
-        Dive Time: {{this.diveTime}}<br>
-        Entry Time: {{this.entryTime}}<br>
-        Exit Time: {{this.exitTime}}<br>
-        What did you see: {{this.seen}}<br>
-        Comments: {{this.comments}}<br>
-        Ratings: {{this.rating}}/5<br>
-        Reviews about Dive Site: {{this.divesiteReviews}}<br>
-      </p>
+      <p class="counter">Dive#{{this.diveNb}} - {{this.divesite.name}}</p>
+    <p>Date: {{this.shortDate}}</p>
+    <p>Entry Time: {{this.entryTime}} / Exit Time: {{this.exitTime}}</p>
+    <p>Dive Time: {{this.diveTime}}</p>
+    <p>Maximum Depth: {{this.depth}}{{this.depthInfo}}</p>
+    <p>Air In: {{this.airInNb}} {{this.airInfo}} / Air Out: {{this.airOut}} {{this.airInfo}}</p>
+    <p>Suit Info: {{this.suitThickness}} - Weights on: {{this.weightNb}} {{this.weightInfo}}</p>
+    <p>What you saw: {{this.seen}}</p>
+    {{#if this.comments}}
+    <p>Personal Comment: {{this.comments}}</p>
+    {{/if}}
+
+    <p>You rated this dive: {{this.rating}}/5</p>
+    <p>Your review of this divesite: {{this.divesiteReviews}}</p>
     </div>
     <div>
       <button><a href="/dive/{{this._id}}/editdive">Edit This Dive</a></button>
@@ -34,5 +31,4 @@
     </div>
   </div>
   {{/each}}
-
 </div>
