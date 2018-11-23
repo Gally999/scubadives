@@ -350,7 +350,6 @@ label {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: 25px;
 }
 
 .profiledive{
@@ -370,11 +369,17 @@ label {
   background-color: #75b2b8;
   color: #f9f3ec;
   border: 1px solid #006582;
-  width: 50px;
+  width: 20px;
   height: 20px;
   font-size: 15px;
   outline: none;
   display: inline;
+  text-align: center;
+}
+
+.width400px {
+  width: 400px;
+  margin: 20px 0;
 }
 
 .editprofile{
@@ -386,12 +391,14 @@ label {
 
 .speciality{
   display: flex;
-  flex-direction: column
+  justify-content: space-around;
+  flex-direction: column;
 }
 
-.spspeciality li{
+.speciality li{
   display: flex;
   justify-content: space-between;
+  width: 350px;
 }
 //Dive site
 
@@ -428,7 +435,7 @@ h2{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 button{
@@ -445,7 +452,7 @@ button{
 
 button a {
   text-decoration: none;
-  color: #f9f3ec;
+  color: white;
 }
 
 // Google Button
