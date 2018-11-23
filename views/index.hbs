@@ -60,11 +60,10 @@
         </div>
     </div>
     {{#if currentUser}}
-    <div>
+    <div class="indexdive">
         <h3>Latest Dive:</h3>
-        <div class="divelogs-profile-page">
-            <div>
-                <p>Dive# {{diveloglatest.0.diveNb}} - {{diveloglatest.0.divesite.name}}</p>
+            <div class="indexdivepart1">
+                <h3>Dive# {{diveloglatest.0.diveNb}} - {{diveloglatest.0.divesite.name}}</h3>
                 <p>Date: {{diveloglatest.0.shortDate}}</p>
                 <p>Entry Time: {{diveloglatest.0.entryTime}} / Exit Time: {{diveloglatest.exitTime}}</p>
                 <p>Dive Time: {{diveloglatest.0.diveTime}}</p>
@@ -78,7 +77,6 @@
                 <p>You rated this dive: {{diveloglatest.0.rating}}/5</p>
                 <p>Your review of this divesite: {{diveloglatest.0.divesiteReviews}}</p>
             </div>
-        </div>
     </div>
 
     {{else}}

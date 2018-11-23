@@ -1,40 +1,40 @@
 <h2>Edit my Profile</h2>
 {{> flash_messages}}
+<div class="editprofile">
+  <form action="/process-edit" method="post">
+    <label>
+      First Name:
+      <input type="text" name="firstName" value="{{currentUser.firstName}}" placeholder="" />
+    </label>
 
-<form action="/process-edit" method="post">
-  <label>
-    First Name:
-    <input type="text" name="firstName" value="{{currentUser.firstName}}" placeholder="" />
-  </label>
-  
-  <label>
-    Last Name:
-    <input type="text" name="lastName" value="{{currentUser.lastName}}" placeholder="" />
-  </label>
+    <label>
+      Last Name:
+      <input type="text" name="lastName" value="{{currentUser.lastName}}" placeholder="" />
+    </label>
 
-  <label>
-    Email:
-    <input type="email" name="email" value="{{currentUser.email}}" placeholder="" />
-  </label>
+    <label>
+      Email:
+      <input type="email" name="email" value="{{currentUser.email}}" placeholder="" />
+    </label>
 
-  <label id="company">
-    Certification Organization:
-    <select name="organization" id="company">
-      <option value="{{currentUser.organization}}">{{currentUser.organization}}</option>
-      <option value="PADI">PADI</option>
-      <option value="SSI">SSI</option>
-      <option value="SDI">SDI</option>
-    </select>
-  </label>
+    <label id="company">
+      Certification Organization:
+      <select name="organization" id="company">
+        <option value="{{currentUser.organization}}">{{currentUser.organization}}</option>
+        <option value="PADI">PADI</option>
+        <option value="SSI">SSI</option>
+        <option value="SDI">SDI</option>
+      </select>
+    </label>
 
-  <label>
-    Certification Number:
-    <input type="text" name="certNb" value="{{currentUser.certNb}}" placeholder="" />
-  </label>
+    <label>
+      Certification Number:
+      <input type="text" name="certNb" value="{{currentUser.certNb}}" placeholder="" />
+    </label>
 
     <label id="maincertification">
-    Main Certification:
-    <select name="mainCert" id="maincertification">
+      Main Certification:
+      <select name="mainCert" id="maincertification">
         <option value="{{currentUser.mainCert}}">{{currentUser.mainCert}}</option>
         <option value="Scuba Diver">Scuba Diver</option>
         <option value="Open Water">Open Water</option>
@@ -42,21 +42,21 @@
         <option value="Advanced Open Water">Advanced Open Water</option>
         <option value="Rescue Diver">Rescue Diver</option>
         <option value="Master Scuba Diver">Master Scuba Diver</option>
-    </select>
-  </label>
+      </select>
+    </label>
 
-  <label for="secondarycertification">
-    Secondary Certification:
-    <select name="secCert" id="secondarycertification">
+    <label for="secondarycertification">
+      Secondary Certification:
+      <select name="secCert" id="secondarycertification">
         <option value="" disabled selected value>{{#if currentUser.secCert}}{{currentUser.secCert}}{{else}}None{{/if}}</option>
         <option value="Dive Master">Dive Master</option>
         <option value="Open Water Scuba Instructor">Open Water Scuba Instructor</option>
-    </select>
-  </label>
+      </select>
+    </label>
 
-  <label for="special">
-    <select name="speciality" id="special" >
-         <option value="nope">Add new speciality</option>
+    <label for="special">
+      <select name="speciality" id="special">
+        <option value="nope">Add new speciality</option>
         {{!-- <option value="nope">None</option> --}}
         <option value="Altitude Diver">Altitude Diver</option>
         <option value="Boat Diver">Boat Diver</option>
@@ -71,17 +71,23 @@
         <option value="Cave Diver">Cave Diver</option>
         <option value="Search and Recovery Diver">Search and Recovery Diver</option>
         <option value="Emergency First Response Provider">Emergency First Response Provider</option>
-    </select>
+      </select>
     </label>
 
 
-  <button>Confirm my changes</button>
-</form>
+    <button>Confirm my changes</button>
+  </form>
 
 
-{{#if currentUser.speciality}}
-    <p>You currently have the following specialities, click on the x to remove one :</p>
+  {{#if currentUser.speciality}}
+  <p>You currently have the following specialities, click on the x to remove one :</p>
+  <div class="speciality">
     {{#each currentUser.speciality}}
-      <li>{{this}} <form action="/speciality-delete/{{this}}" method="post"><button>x</button></form></li>
+    <li>{{this}}
+      <form action="/speciality-delete/{{this}}" method="post">
+        <button class="x">x</button> </li>
+    </form>
     {{/each}}
+  </div>
   {{/if}}
+</div>

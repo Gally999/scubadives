@@ -322,10 +322,46 @@ label {
 // Profile page
 .divelogs-profile-page {
   display: flex;
-  margin: 0 auto;
-  width: 90%;
+  flex-wrap: wrap;
+  margin: 25px;
 }
 
+.profiledive{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 50px;
+  width: 20%;
+  border: 5px solid #fdaf00;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+//edit profile
+.x{
+  background-color: #75b2b8;
+  color: #f9f3ec;
+  border: 1px solid #006582;
+  width: 50px;
+  height: 20px;
+  font-size: 15px;
+}
+
+.editprofile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.speciality{
+  display: flex;
+  flex-direction: column
+}
+
+.spspeciality li{
+  display: flex;
+}
 //Dive site
 
 h2{
@@ -346,9 +382,10 @@ button{
   color: #f9f3ec;
   border: 1px solid #006582;
   border-radius: 15px;
-  width: 150px;
+  width: 250px;
   height: 50px;
   font-size: 18px;
+  margin: 20px;
 }
 
 button a {
@@ -401,6 +438,25 @@ button a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+//
+.indexdive{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  padding: 0 50px;
+}
+.indexdivepart1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adddivelist{
+  display: flex;
+  justify-content: center;
 }
 
 //footer
